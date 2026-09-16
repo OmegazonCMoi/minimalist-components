@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { tapScale, tapTransition } from "@/lib/motion";
 
 type ButtonVariant = "solid" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
@@ -51,6 +55,8 @@ const iconOnlySizeClasses: Record<ButtonSize, string> = {
   lg: "size-12 text-base",
 };
 
+const MotionLink = motion.create(Link);
+
 export default function Button({
   href,
   children,
@@ -68,6 +74,8 @@ export default function Button({
   rel,
   "aria-label": ariaLabel,
 }: ButtonProps) {
+  const reduced = useReducedMotion() ?? false;
+
   const classes = [
     "inline-flex items-center justify-center rounded-2xl font-sans font-medium tracking-normal transition-colors",
     disabled ? "cursor-not-allowed opacity-40" : "cursor-pointer",
@@ -99,30 +107,36 @@ export default function Button({
     </>
   );
 
+  const press = !disabled && !reduced ? tapScale : undefined;
+
   if (href && !disabled) {
     return (
-      <Link
+      <MotionLink
         href={href}
         className={classes}
         target={target}
         rel={rel}
         aria-label={iconOnly ? label : ariaLabel}
+        whileTap={press}
+        transition={tapTransition}
       >
         {content}
-      </Link>
+      </MotionLink>
     );
   }
 
   return (
-    <button
+    <motion.button
       type={type}
       className={classes}
       disabled={disabled}
       onClick={onClick}
       aria-label={iconOnly ? label : ariaLabel}
+      whileTap={press}
+      transition={tapTransition}
     >
       {content}
-    </button>
+    </motion.button>
   );
 }
 

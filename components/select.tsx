@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckIcon, ChevronDownIcon } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   useEffect,
   useId,
@@ -9,6 +10,7 @@ import {
   type FocusEvent,
   type KeyboardEvent,
 } from "react";
+import { EASE_OUT, popoverTransition, popoverVariants } from "@/lib/motion";
 
 type SelectSize = "sm" | "md" | "lg";
 
@@ -65,6 +67,7 @@ export default function Select({
   onBlur,
   onFocus,
 }: SelectProps) {
+  const reduced = useReducedMotion() ?? false;
   const reactId = useId();
   const selectId = id ?? name ?? reactId;
   const listboxId = `${selectId}-listbox`;
@@ -74,6 +77,7 @@ export default function Select({
   const selected = isControlled ? value : internal;
 
   const [open, setOpen] = useState(false);
+  const [layerUp, setLayerUp] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
 
   const rootRef = useRef<HTMLDivElement>(null);
@@ -117,6 +121,7 @@ export default function Select({
         ? options.findIndex((o) => o.value === selected && !o.disabled)
         : options.findIndex((o) => !o.disabled);
     setActiveIndex(index ?? (fallback >= 0 ? fallback : 0));
+    setLayerUp(true);
     setOpen(true);
   }
 
@@ -236,7 +241,11 @@ export default function Select({
 
       {name ? <input type="hidden" name={name} value={selected} /> : null}
 
-      <div className={["relative w-full", open ? "z-[200]" : ""].filter(Boolean).join(" ")}>
+      <div
+        className={["relative w-full", layerUp ? "z-[200]" : ""]
+          .filter(Boolean)
+          .join(" ")}
+      >
         <button
           ref={buttonRef}
           type="button"
@@ -264,81 +273,92 @@ export default function Select({
           >
             {displayLabel}
           </span>
-          <span
+          <motion.span
             className={[
-              "inline-flex shrink-0 transition-transform [&_svg]:size-[1em]",
-              open ? "rotate-180" : "",
+              "inline-flex shrink-0 [&_svg]:size-[1em]",
               error ? "text-[#f87171]" : "text-zinc-500",
             ].join(" ")}
             aria-hidden
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={
+              reduced ? { duration: 0 } : { duration: 0.2, ease: EASE_OUT }
+            }
           >
             <ChevronDownIcon />
-          </span>
+          </motion.span>
         </button>
 
-        {open ? (
-          <ul
-            ref={listRef}
-            id={listboxId}
-            role="listbox"
-            aria-labelledby={selectId}
-            tabIndex={-1}
-            className={[
-              "absolute top-full left-0 z-[200] mt-1.5 max-h-60 w-full overflow-auto p-1",
-              "rounded-2xl border border-zinc-200 bg-white shadow-lg",
-              "dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-black/40",
-              "outline-none",
-            ].join(" ")}
-          >
-            {options.map((option, index) => {
-              const isSelected = option.value === selected;
-              const isActive = index === activeIndex;
+        <AnimatePresence onExitComplete={() => setLayerUp(false)}>
+          {open ? (
+            <motion.ul
+              ref={listRef}
+              id={listboxId}
+              role="listbox"
+              aria-labelledby={selectId}
+              tabIndex={-1}
+              initial={reduced ? false : "hidden"}
+              animate="visible"
+              exit={reduced ? undefined : "hidden"}
+              variants={popoverVariants}
+              transition={reduced ? { duration: 0 } : popoverTransition}
+              style={{ transformOrigin: "50% 0%" }}
+              className={[
+                "absolute top-full left-0 z-[200] mt-1.5 max-h-60 w-full overflow-auto p-1",
+                "rounded-2xl border border-zinc-200 bg-white shadow-lg",
+                "dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-black/40",
+                "outline-none",
+              ].join(" ")}
+            >
+              {options.map((option, index) => {
+                const isSelected = option.value === selected;
+                const isActive = index === activeIndex;
 
-              return (
-                <li
-                  key={option.value}
-                  id={`${selectId}-opt-${index}`}
-                  role="option"
-                  data-index={index}
-                  aria-selected={isSelected}
-                  aria-disabled={option.disabled || undefined}
-                  className={[
-                    "flex w-full cursor-pointer items-center justify-between gap-2",
-                    optionSizeClasses[size],
-                    option.disabled
-                      ? "cursor-not-allowed opacity-40"
-                      : isActive
-                        ? "bg-zinc-100 text-zinc-950 dark:bg-zinc-800 dark:text-zinc-50"
-                        : "text-zinc-700 dark:text-zinc-300",
-                    isSelected && !isActive
-                      ? "text-zinc-950 dark:text-zinc-50"
-                      : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                  onMouseEnter={() => {
-                    if (!option.disabled) setActiveIndex(index);
-                  }}
-                  onMouseDown={(event) => {
-                    event.preventDefault();
-                  }}
-                  onClick={() => {
-                    if (option.disabled) return;
-                    commit(option.value);
-                  }}
-                >
-                  <span className="truncate">{option.label}</span>
-                  {isSelected ? (
-                    <CheckIcon
-                      className="size-[1em] shrink-0 text-zinc-500"
-                      aria-hidden
-                    />
-                  ) : null}
-                </li>
-              );
-            })}
-          </ul>
-        ) : null}
+                return (
+                  <li
+                    key={option.value}
+                    id={`${selectId}-opt-${index}`}
+                    role="option"
+                    data-index={index}
+                    aria-selected={isSelected}
+                    aria-disabled={option.disabled || undefined}
+                    className={[
+                      "flex w-full cursor-pointer items-center justify-between gap-2",
+                      optionSizeClasses[size],
+                      option.disabled
+                        ? "cursor-not-allowed opacity-40"
+                        : isActive
+                          ? "bg-zinc-100 text-zinc-950 dark:bg-zinc-800 dark:text-zinc-50"
+                          : "text-zinc-700 dark:text-zinc-300",
+                      isSelected && !isActive
+                        ? "text-zinc-950 dark:text-zinc-50"
+                        : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                    onMouseEnter={() => {
+                      if (!option.disabled) setActiveIndex(index);
+                    }}
+                    onMouseDown={(event) => {
+                      event.preventDefault();
+                    }}
+                    onClick={() => {
+                      if (option.disabled) return;
+                      commit(option.value);
+                    }}
+                  >
+                    <span className="truncate">{option.label}</span>
+                    {isSelected ? (
+                      <CheckIcon
+                        className="size-[1em] shrink-0 text-zinc-500"
+                        aria-hidden
+                      />
+                    ) : null}
+                  </li>
+                );
+              })}
+            </motion.ul>
+          ) : null}
+        </AnimatePresence>
       </div>
 
       {error ? <p className="text-xs text-[#f87171]">{error}</p> : null}
