@@ -7,6 +7,9 @@ export type { ButtonProps, ButtonVariant, ButtonSize } from "./button";
 export { default as Checkbox } from "./checkbox";
 export type { CheckboxProps, CheckboxSize } from "./checkbox";
 
+export { default as DatePicker } from "./date-picker";
+export type { DatePickerProps, DatePickerSize } from "./date-picker";
+
 export { default as Demo } from "./demo";
 export type { DemoProps } from "./demo";
 

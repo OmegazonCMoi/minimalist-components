@@ -21,6 +21,7 @@ export const docsNav: DocsNavSection[] = [
     items: [
       { title: "Input", href: "/docs/components/input" },
       { title: "Select", href: "/docs/components/select" },
+      { title: "Date Picker", href: "/docs/components/date-picker" },
       { title: "Checkbox", href: "/docs/components/checkbox" },
       { title: "Radio", href: "/docs/components/radio" },
       { title: "Switch", href: "/docs/components/switch" },
