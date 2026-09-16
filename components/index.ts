@@ -16,6 +16,9 @@ export type { InputProps, InputSize, InputType } from "./input";
 export { default as Radio } from "./radio";
 export type { RadioProps, RadioSize } from "./radio";
 
+export { default as Select } from "./select";
+export type { SelectProps, SelectSize, SelectOption } from "./select";
+
 export { default as Switch } from "./switch";
 export type { SwitchProps, SwitchSize } from "./switch";
 
