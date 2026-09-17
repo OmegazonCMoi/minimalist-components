@@ -20,6 +20,7 @@ export const docsNav: DocsNavSection[] = [
     title: "Form",
     items: [
       { title: "Input", href: "/docs/components/input" },
+      { title: "Input OTP", href: "/docs/components/input-otp" },
       { title: "Select", href: "/docs/components/select" },
       { title: "Date Picker", href: "/docs/components/date-picker" },
       { title: "Checkbox", href: "/docs/components/checkbox" },

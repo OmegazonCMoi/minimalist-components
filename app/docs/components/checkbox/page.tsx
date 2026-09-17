@@ -1,27 +1,7 @@
 import Checkbox from "@/components/checkbox";
-import Demo from "@/components/demo";
 import Table from "@/components/table";
 import { InstallBlock } from "@/components/docs/code-block";
-
-function PropSection({
-  name,
-  description,
-  children,
-}: {
-  name: string;
-  description: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="space-y-4">
-      <div className="space-y-1">
-        <h2 className="font-mono text-sm text-zinc-900 dark:text-zinc-100">{name}</h2>
-        <p className="text-sm text-zinc-500">{description}</p>
-      </div>
-      <Demo>{children}</Demo>
-    </section>
-  );
-}
+import { PropSection } from "@/components/docs/prop-section";
 
 const props = [
   { prop: "label", type: "ReactNode", default: "—", description: "Field label" },
@@ -35,6 +15,8 @@ const props = [
   { prop: "onChange", type: "function", default: "—", description: "Change handler" },
   { prop: "className", type: "string", default: "—", description: "Extra classes" },
 ];
+
+const imp = `import { Checkbox } from "@/components";`;
 
 export default function CheckboxDocsPage() {
   return (
@@ -53,26 +35,60 @@ export default function CheckboxDocsPage() {
 
       <InstallBlock name="Checkbox" />
 
-      <PropSection name="label" description="ReactNode — optional text">
+      <PropSection
+        name="label"
+        description="ReactNode — optional text"
+        code={`${imp}
+
+<Checkbox label="Accept terms" />`}
+      >
         <Checkbox label="Accept terms" />
       </PropSection>
 
-      <PropSection name="size" description="sm · md · lg — default md">
+      <PropSection
+        name="size"
+        description="sm · md · lg — default md"
+        code={`${imp}
+
+<Checkbox size="sm" label="Small" defaultChecked />
+<Checkbox size="md" label="Medium" defaultChecked />
+<Checkbox size="lg" label="Large" defaultChecked />`}
+      >
         <Checkbox size="sm" label="Small" defaultChecked />
         <Checkbox size="md" label="Medium" defaultChecked />
         <Checkbox size="lg" label="Large" defaultChecked />
       </PropSection>
 
-      <PropSection name="defaultChecked" description="boolean — initial checked">
+      <PropSection
+        name="defaultChecked"
+        description="boolean — initial checked"
+        code={`${imp}
+
+<Checkbox label="Off" />
+<Checkbox label="On" defaultChecked />`}
+      >
         <Checkbox label="Off" />
         <Checkbox label="On" defaultChecked />
       </PropSection>
 
-      <PropSection name="error" description="string — error message + red state">
+      <PropSection
+        name="error"
+        description="string — error message + red state"
+        code={`${imp}
+
+<Checkbox label="Required" error="Must accept" />`}
+      >
         <Checkbox label="Required" error="Must accept" />
       </PropSection>
 
-      <PropSection name="disabled" description="boolean — default false">
+      <PropSection
+        name="disabled"
+        description="boolean — default false"
+        code={`${imp}
+
+<Checkbox label="Enabled" />
+<Checkbox label="Disabled" disabled defaultChecked />`}
+      >
         <Checkbox label="Enabled" />
         <Checkbox label="Disabled" disabled defaultChecked />
       </PropSection>

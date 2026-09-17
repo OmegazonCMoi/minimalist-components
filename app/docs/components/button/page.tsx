@@ -1,28 +1,8 @@
 import Button from "@/components/button";
-import Demo from "@/components/demo";
 import Table from "@/components/table";
 import { InstallBlock } from "@/components/docs/code-block";
+import { PropSection } from "@/components/docs/prop-section";
 import { ArrowRightIcon, SearchIcon } from "lucide-react";
-
-function PropSection({
-  name,
-  description,
-  children,
-}: {
-  name: string;
-  description: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="space-y-4">
-      <div className="space-y-1">
-        <h2 className="font-mono text-sm text-zinc-900 dark:text-zinc-100">{name}</h2>
-        <p className="text-sm text-zinc-500">{description}</p>
-      </div>
-      <Demo>{children}</Demo>
-    </section>
-  );
-}
 
 const buttonProps = [
   { prop: "children", type: "ReactNode", default: "—", description: "Button content" },
@@ -41,6 +21,12 @@ const buttonProps = [
   { prop: "rel", type: "string", default: "—", description: "Link rel" },
 ];
 
+const imp = `import { Button } from "@/components";`;
+const impArrow = `import { Button } from "@/components";
+import { ArrowRightIcon } from "lucide-react";`;
+const impIcons = `import { Button } from "@/components";
+import { ArrowRightIcon, SearchIcon } from "lucide-react";`;
+
 export default function ButtonDocsPage() {
   return (
     <article className="space-y-10">
@@ -58,29 +44,66 @@ export default function ButtonDocsPage() {
 
       <InstallBlock name="Button" />
 
-      <PropSection name="variant" description="solid · outline · ghost — default solid">
+      <PropSection
+        name="variant"
+        description="solid · outline · ghost — default solid"
+        code={`${imp}
+
+<Button variant="solid">Solid</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>`}
+      >
         <Button variant="solid">Solid</Button>
         <Button variant="outline">Outline</Button>
         <Button variant="ghost">Ghost</Button>
       </PropSection>
 
-      <PropSection name="size" description="sm · md · lg — default md">
+      <PropSection
+        name="size"
+        description="sm · md · lg — default md"
+        code={`${imp}
+
+<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>`}
+      >
         <Button size="sm">Small</Button>
         <Button size="md">Medium</Button>
         <Button size="lg">Large</Button>
       </PropSection>
 
-      <PropSection name="border" description="boolean — default false">
+      <PropSection
+        name="border"
+        description="boolean — default false"
+        code={`${imp}
+
+<Button border={false}>No border</Button>
+<Button border>With border</Button>`}
+      >
         <Button border={false}>No border</Button>
         <Button border>With border</Button>
       </PropSection>
 
-      <PropSection name="icon" description="ReactNode — optional, rendered on the right by default">
+      <PropSection
+        name="icon"
+        description="ReactNode — optional, rendered on the right by default"
+        code={`${impArrow}
+
+<Button>No icon</Button>
+<Button icon={<ArrowRightIcon />}>With icon</Button>`}
+      >
         <Button>No icon</Button>
         <Button icon={<ArrowRightIcon className="size-4" />}>With icon</Button>
       </PropSection>
 
-      <PropSection name="iconPosition" description="left · right — default right">
+      <PropSection
+        name="iconPosition"
+        description="left · right — default right"
+        code={`${impArrow}
+
+<Button icon={<ArrowRightIcon />} iconPosition="left">Left</Button>
+<Button icon={<ArrowRightIcon />} iconPosition="right">Right</Button>`}
+      >
         <Button icon={<ArrowRightIcon className="size-4" />} iconPosition="left">
           Left
         </Button>
@@ -89,7 +112,15 @@ export default function ButtonDocsPage() {
         </Button>
       </PropSection>
 
-      <PropSection name="iconOnly" description="boolean — square icon button, default false">
+      <PropSection
+        name="iconOnly"
+        description="boolean — square icon button, default false"
+        code={`${impIcons}
+
+<Button iconOnly icon={<SearchIcon />} aria-label="Search" />
+<Button iconOnly size="sm" border icon={<ArrowRightIcon />} aria-label="Next" />
+<Button iconOnly size="lg" variant="ghost" icon={<SearchIcon />} aria-label="Search large" />`}
+      >
         <Button iconOnly icon={<SearchIcon className="size-4" />} aria-label="Search" />
         <Button
           iconOnly
@@ -107,12 +138,26 @@ export default function ButtonDocsPage() {
         />
       </PropSection>
 
-      <PropSection name="disabled" description="boolean — default false">
+      <PropSection
+        name="disabled"
+        description="boolean — default false"
+        code={`${imp}
+
+<Button>Enabled</Button>
+<Button disabled>Disabled</Button>`}
+      >
         <Button>Enabled</Button>
         <Button disabled>Disabled</Button>
       </PropSection>
 
-      <PropSection name="href" description="string — renders a Next.js Link when set">
+      <PropSection
+        name="href"
+        description="string — renders a Next.js Link when set"
+        code={`${imp}
+
+<Button>Button</Button>
+<Button href="/docs">Link</Button>`}
+      >
         <Button>Button</Button>
         <Button href="/docs">Link</Button>
       </PropSection>

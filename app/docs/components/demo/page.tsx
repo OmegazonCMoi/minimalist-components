@@ -3,6 +3,9 @@ import Demo from "@/components/demo";
 import Table from "@/components/table";
 import { InstallBlock } from "@/components/docs/code-block";
 
+const impButton = `import { Button } from "@/components";`;
+const impDemo = `import { Button, Demo } from "@/components";`;
+
 export default function DemoDocsPage() {
   return (
     <article className="space-y-10">
@@ -14,7 +17,7 @@ export default function DemoDocsPage() {
           Demo
         </h1>
         <p className="text-base leading-relaxed text-zinc-400">
-          Preview surface with dashed border and dotted background.
+          Preview surface with a top-right switcher between live demo and source code.
         </p>
       </header>
 
@@ -23,9 +26,13 @@ export default function DemoDocsPage() {
       <section className="space-y-4">
         <div className="space-y-1">
           <h2 className="font-mono text-sm text-zinc-900 dark:text-zinc-100">default</h2>
-          <p className="text-sm text-zinc-500">Centered row, dashed frame, dotted fill</p>
+          <p className="text-sm text-zinc-500">Centered preview + code toggle</p>
         </div>
-        <Demo>
+        <Demo
+          code={`${impButton}
+
+<Button size="sm">Action</Button>`}
+        >
           <Button size="sm">Action</Button>
         </Demo>
       </section>
@@ -35,7 +42,15 @@ export default function DemoDocsPage() {
           <h2 className="font-mono text-sm text-zinc-900 dark:text-zinc-100">className</h2>
           <p className="text-sm text-zinc-500">string — tweak layout or height</p>
         </div>
-        <Demo className="!flex-col min-h-40 gap-4">
+        <Demo
+          className="!flex-col min-h-40 gap-4"
+          code={`${impDemo}
+
+<Demo className="!flex-col min-h-40 gap-4">
+  <Button size="sm" variant="solid">Top</Button>
+  <Button size="sm" variant="ghost">Bottom</Button>
+</Demo>`}
+        >
           <Button size="sm" variant="solid">
             Top
           </Button>
@@ -55,8 +70,10 @@ export default function DemoDocsPage() {
             { key: "description", header: "Description" },
           ]}
           rows={[
-            { prop: "children", type: "ReactNode", default: "—", description: "Demo content" },
+            { prop: "children", type: "ReactNode", default: "—", description: "Live preview" },
+            { prop: "code", type: "string", default: "—", description: "Source for code view" },
             { prop: "className", type: "string", default: "—", description: "Extra classes" },
+            { prop: "toolbar", type: "boolean", default: "true", description: "Demo/code switcher" },
           ]}
         />
       </section>

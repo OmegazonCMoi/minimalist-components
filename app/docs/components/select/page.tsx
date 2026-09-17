@@ -1,27 +1,7 @@
-import Demo from "@/components/demo";
 import Select from "@/components/select";
 import Table from "@/components/table";
 import { InstallBlock } from "@/components/docs/code-block";
-
-function PropSection({
-  name,
-  description,
-  children,
-}: {
-  name: string;
-  description: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="space-y-4">
-      <div className="space-y-1">
-        <h2 className="font-mono text-sm text-zinc-900 dark:text-zinc-100">{name}</h2>
-        <p className="text-sm text-zinc-500">{description}</p>
-      </div>
-      <Demo>{children}</Demo>
-    </section>
-  );
-}
+import { PropSection } from "@/components/docs/prop-section";
 
 const fruitOptions = [
   { label: "Apple", value: "apple" },
@@ -35,6 +15,14 @@ const countryOptions = [
   { label: "Japan", value: "jp" },
   { label: "United States", value: "us" },
 ];
+
+const imp = `import { Select } from "@/components";`;
+
+const optionsCode = `const options = [
+  { label: "Apple", value: "apple" },
+  { label: "Banana", value: "banana" },
+  { label: "Cherry", value: "cherry" },
+];`;
 
 const selectProps = [
   { prop: "options", type: "SelectOption[]", default: "—", description: "List of choices" },
@@ -69,19 +57,49 @@ export default function SelectDocsPage() {
 
       <InstallBlock name="Select" />
 
-      <PropSection name="options" description="SelectOption[] — required choices">
+      <PropSection
+        name="options"
+        description="SelectOption[] — required choices"
+        code={`${imp}
+
+${optionsCode}
+
+<Select options={options} defaultValue="apple" />`}
+      >
         <Select options={fruitOptions} defaultValue="apple" />
       </PropSection>
 
-      <PropSection name="placeholder" description="string — disabled empty option">
+      <PropSection
+        name="placeholder"
+        description="string — disabled empty option"
+        code={`${imp}
+
+<Select options={options} placeholder="Pick a fruit" />`}
+      >
         <Select options={fruitOptions} placeholder="Pick a fruit" />
       </PropSection>
 
-      <PropSection name="defaultValue" description="string — uncontrolled initial value">
+      <PropSection
+        name="defaultValue"
+        description="string — uncontrolled initial value"
+        code={`${imp}
+
+<Select options={countries} defaultValue="fr" />`}
+      >
         <Select options={countryOptions} defaultValue="fr" />
       </PropSection>
 
-      <PropSection name="label" description="string — optional field label">
+      <PropSection
+        name="label"
+        description="string — optional field label"
+        code={`${imp}
+
+<Select
+  label="Country"
+  options={countries}
+  placeholder="Select a country"
+/>`}
+      >
         <Select
           label="Country"
           options={countryOptions}
@@ -89,18 +107,47 @@ export default function SelectDocsPage() {
         />
       </PropSection>
 
-      <PropSection name="size" description="sm · md · lg — default md">
+      <PropSection
+        name="size"
+        description="sm · md · lg — default md"
+        code={`${imp}
+
+<Select size="sm" options={options} placeholder="Small" />
+<Select size="md" options={options} placeholder="Medium" />
+<Select size="lg" options={options} placeholder="Large" />`}
+      >
         <Select size="sm" options={fruitOptions} placeholder="Small" />
         <Select size="md" options={fruitOptions} placeholder="Medium" />
         <Select size="lg" options={fruitOptions} placeholder="Large" />
       </PropSection>
 
-      <PropSection name="border" description="boolean — default false">
+      <PropSection
+        name="border"
+        description="boolean — default false"
+        code={`${imp}
+
+<Select options={options} placeholder="No border" />
+<Select border options={options} placeholder="With border" />`}
+      >
         <Select options={fruitOptions} placeholder="No border" />
         <Select border options={fruitOptions} placeholder="With border" />
       </PropSection>
 
-      <PropSection name="error" description="string — error message + red border">
+      <PropSection
+        name="error"
+        description="string — error message + red border"
+        code={`${imp}
+
+<Select
+  label="Plan"
+  options={[
+    { label: "Free", value: "free" },
+    { label: "Pro", value: "pro" },
+  ]}
+  defaultValue="free"
+  error="Upgrade required"
+/>`}
+      >
         <Select
           label="Plan"
           options={[
@@ -112,13 +159,16 @@ export default function SelectDocsPage() {
         />
       </PropSection>
 
-      <PropSection name="disabled" description="boolean — default false">
+      <PropSection
+        name="disabled"
+        description="boolean — default false"
+        code={`${imp}
+
+<Select options={options} placeholder="Enabled" />
+<Select disabled options={options} defaultValue="banana" />`}
+      >
         <Select options={fruitOptions} placeholder="Enabled" />
-        <Select
-          disabled
-          options={fruitOptions}
-          defaultValue="banana"
-        />
+        <Select disabled options={fruitOptions} defaultValue="banana" />
       </PropSection>
 
       <section className="space-y-4">

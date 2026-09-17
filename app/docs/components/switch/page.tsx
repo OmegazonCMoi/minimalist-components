@@ -1,27 +1,7 @@
-import Demo from "@/components/demo";
 import Switch from "@/components/switch";
 import Table from "@/components/table";
 import { InstallBlock } from "@/components/docs/code-block";
-
-function PropSection({
-  name,
-  description,
-  children,
-}: {
-  name: string;
-  description: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="space-y-4">
-      <div className="space-y-1">
-        <h2 className="font-mono text-sm text-zinc-900 dark:text-zinc-100">{name}</h2>
-        <p className="text-sm text-zinc-500">{description}</p>
-      </div>
-      <Demo>{children}</Demo>
-    </section>
-  );
-}
+import { PropSection } from "@/components/docs/prop-section";
 
 const props = [
   { prop: "label", type: "ReactNode", default: "—", description: "Field label" },
@@ -34,6 +14,8 @@ const props = [
   { prop: "onChange", type: "function", default: "—", description: "Change handler" },
   { prop: "className", type: "string", default: "—", description: "Extra classes" },
 ];
+
+const imp = `import { Switch } from "@/components";`;
 
 export default function SwitchDocsPage() {
   return (
@@ -52,26 +34,60 @@ export default function SwitchDocsPage() {
 
       <InstallBlock name="Switch" />
 
-      <PropSection name="label" description="ReactNode — optional text">
+      <PropSection
+        name="label"
+        description="ReactNode — optional text"
+        code={`${imp}
+
+<Switch label="Notifications" />`}
+      >
         <Switch label="Notifications" />
       </PropSection>
 
-      <PropSection name="size" description="sm · md · lg — default md">
+      <PropSection
+        name="size"
+        description="sm · md · lg — default md"
+        code={`${imp}
+
+<Switch size="sm" label="Small" defaultChecked />
+<Switch size="md" label="Medium" defaultChecked />
+<Switch size="lg" label="Large" defaultChecked />`}
+      >
         <Switch size="sm" label="Small" defaultChecked />
         <Switch size="md" label="Medium" defaultChecked />
         <Switch size="lg" label="Large" defaultChecked />
       </PropSection>
 
-      <PropSection name="defaultChecked" description="boolean — initial on">
+      <PropSection
+        name="defaultChecked"
+        description="boolean — initial on"
+        code={`${imp}
+
+<Switch label="Off" />
+<Switch label="On" defaultChecked />`}
+      >
         <Switch label="Off" />
         <Switch label="On" defaultChecked />
       </PropSection>
 
-      <PropSection name="error" description="string — error message + red state">
+      <PropSection
+        name="error"
+        description="string — error message + red state"
+        code={`${imp}
+
+<Switch label="Required" error="Must enable" />`}
+      >
         <Switch label="Required" error="Must enable" />
       </PropSection>
 
-      <PropSection name="disabled" description="boolean — default false">
+      <PropSection
+        name="disabled"
+        description="boolean — default false"
+        code={`${imp}
+
+<Switch label="Enabled" />
+<Switch label="Disabled" disabled defaultChecked />`}
+      >
         <Switch label="Enabled" />
         <Switch label="Disabled" disabled defaultChecked />
       </PropSection>

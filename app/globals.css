@@ -47,3 +47,29 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+/* sugar-high tokens — Demo code view */
+.demo-code {
+  --sh-class: #3f3f46;
+  --sh-identifier: #18181b;
+  --sh-sign: #71717a;
+  --sh-string: #0f766e;
+  --sh-keyword: #b45309;
+  --sh-comment: #a1a1aa;
+  --sh-jsxliterals: #5b21b6;
+  --sh-property: #1d4ed8;
+  --sh-entity: #0f766e;
+}
+
+.dark .demo-code {
+  --sh-class: #d4d4d8;
+  --sh-identifier: #f4f4f5;
+  --sh-sign: #71717a;
+  --sh-string: #2dd4bf;
+  --sh-keyword: #fbbf24;
+  --sh-comment: #52525b;
+  --sh-jsxliterals: #c4b5fd;
+  --sh-property: #93c5fd;
+  --sh-entity: #5eead4;
+}
+

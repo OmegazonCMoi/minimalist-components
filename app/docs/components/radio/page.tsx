@@ -1,27 +1,7 @@
-import Demo from "@/components/demo";
 import Radio from "@/components/radio";
 import Table from "@/components/table";
 import { InstallBlock } from "@/components/docs/code-block";
-
-function PropSection({
-  name,
-  description,
-  children,
-}: {
-  name: string;
-  description: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="space-y-4">
-      <div className="space-y-1">
-        <h2 className="font-mono text-sm text-zinc-900 dark:text-zinc-100">{name}</h2>
-        <p className="text-sm text-zinc-500">{description}</p>
-      </div>
-      <Demo>{children}</Demo>
-    </section>
-  );
-}
+import { PropSection } from "@/components/docs/prop-section";
 
 const props = [
   { prop: "label", type: "ReactNode", default: "—", description: "Option label" },
@@ -35,6 +15,8 @@ const props = [
   { prop: "onChange", type: "function", default: "—", description: "Change handler" },
   { prop: "className", type: "string", default: "—", description: "Extra classes" },
 ];
+
+const imp = `import { Radio } from "@/components";`;
 
 export default function RadioDocsPage() {
   return (
@@ -53,27 +35,62 @@ export default function RadioDocsPage() {
 
       <InstallBlock name="Radio" />
 
-      <PropSection name="label" description="ReactNode — optional text">
+      <PropSection
+        name="label"
+        description="ReactNode — optional text"
+        code={`${imp}
+
+<Radio name="plan-label" value="pro" label="Pro plan" />`}
+      >
         <Radio name="plan-label" value="pro" label="Pro plan" />
       </PropSection>
 
-      <PropSection name="size" description="sm · md · lg — default md">
+      <PropSection
+        name="size"
+        description="sm · md · lg — default md"
+        code={`${imp}
+
+<Radio name="plan-size" value="sm" size="sm" label="Small" defaultChecked />
+<Radio name="plan-size-md" value="md" size="md" label="Medium" defaultChecked />
+<Radio name="plan-size-lg" value="lg" size="lg" label="Large" defaultChecked />`}
+      >
         <Radio name="plan-size" value="sm" size="sm" label="Small" defaultChecked />
         <Radio name="plan-size-md" value="md" size="md" label="Medium" defaultChecked />
         <Radio name="plan-size-lg" value="lg" size="lg" label="Large" defaultChecked />
       </PropSection>
 
-      <PropSection name="name / value" description="group radios with the same name">
+      <PropSection
+        name="name / value"
+        description="group radios with the same name"
+        code={`${imp}
+
+<Radio name="theme" value="dark" label="Dark" defaultChecked />
+<Radio name="theme" value="light" label="Light" />
+<Radio name="theme" value="system" label="System" />`}
+      >
         <Radio name="theme" value="dark" label="Dark" defaultChecked />
         <Radio name="theme" value="light" label="Light" />
         <Radio name="theme" value="system" label="System" />
       </PropSection>
 
-      <PropSection name="error" description="string — error message + red state">
+      <PropSection
+        name="error"
+        description="string — error message + red state"
+        code={`${imp}
+
+<Radio name="err" value="a" label="Option A" error="Pick one" />`}
+      >
         <Radio name="err" value="a" label="Option A" error="Pick one" />
       </PropSection>
 
-      <PropSection name="disabled" description="boolean — default false">
+      <PropSection
+        name="disabled"
+        description="boolean — default false"
+        code={`${imp}
+
+<Radio name="dis" value="on" label="Enabled" />
+<Radio name="dis2" value="off" label="Disabled" disabled defaultChecked />`}
+      >
         <Radio name="dis" value="on" label="Enabled" />
         <Radio name="dis2" value="off" label="Disabled" disabled defaultChecked />
       </PropSection>

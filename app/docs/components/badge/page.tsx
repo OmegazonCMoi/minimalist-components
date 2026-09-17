@@ -1,28 +1,8 @@
 import Badge from "@/components/badge";
-import Demo from "@/components/demo";
 import Table from "@/components/table";
 import { InstallBlock } from "@/components/docs/code-block";
+import { PropSection } from "@/components/docs/prop-section";
 import { CheckIcon } from "lucide-react";
-
-function PropSection({
-  name,
-  description,
-  children,
-}: {
-  name: string;
-  description: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="space-y-4">
-      <div className="space-y-1">
-        <h2 className="font-mono text-sm text-zinc-900 dark:text-zinc-100">{name}</h2>
-        <p className="text-sm text-zinc-500">{description}</p>
-      </div>
-      <Demo>{children}</Demo>
-    </section>
-  );
-}
 
 const props = [
   { prop: "children", type: "ReactNode", default: "—", description: "Badge text" },
@@ -41,6 +21,10 @@ const props = [
 const avatar =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect fill='%233f3f46' width='40' height='40'/%3E%3Ccircle cx='20' cy='16' r='7' fill='%23a1a1aa'/%3E%3Cellipse cx='20' cy='34' rx='12' ry='8' fill='%23a1a1aa'/%3E%3C/svg%3E";
 
+const imp = `import { Badge } from "@/components";`;
+const impIcon = `import { Badge } from "@/components";
+import { CheckIcon } from "lucide-react";`;
+
 export default function BadgeDocsPage() {
   return (
     <article className="space-y-10">
@@ -58,26 +42,60 @@ export default function BadgeDocsPage() {
 
       <InstallBlock name="Badge" />
 
-      <PropSection name="variant" description="solid · outline · ghost — default solid">
+      <PropSection
+        name="variant"
+        description="solid · outline · ghost — default solid"
+        code={`${imp}
+
+<Badge variant="solid">Solid</Badge>
+<Badge variant="outline">Outline</Badge>
+<Badge variant="ghost">Ghost</Badge>`}
+      >
         <Badge variant="solid">Solid</Badge>
         <Badge variant="outline">Outline</Badge>
         <Badge variant="ghost">Ghost</Badge>
       </PropSection>
 
-      <PropSection name="tone" description="neutral · success · warning · danger">
+      <PropSection
+        name="tone"
+        description="neutral · success · warning · danger"
+        code={`${imp}
+
+<Badge tone="neutral">Neutral</Badge>
+<Badge tone="success">Success</Badge>
+<Badge tone="warning">Warning</Badge>
+<Badge tone="danger">Danger</Badge>`}
+      >
         <Badge tone="neutral">Neutral</Badge>
         <Badge tone="success">Success</Badge>
         <Badge tone="warning">Warning</Badge>
         <Badge tone="danger">Danger</Badge>
       </PropSection>
 
-      <PropSection name="size" description="sm · md · lg — default md">
+      <PropSection
+        name="size"
+        description="sm · md · lg — default md"
+        code={`${imp}
+
+<Badge size="sm">Small</Badge>
+<Badge size="md">Medium</Badge>
+<Badge size="lg">Large</Badge>`}
+      >
         <Badge size="sm">Small</Badge>
         <Badge size="md">Medium</Badge>
         <Badge size="lg">Large</Badge>
       </PropSection>
 
-      <PropSection name="border" description="boolean — default false">
+      <PropSection
+        name="border"
+        description="boolean — default false"
+        code={`${imp}
+
+<Badge>No border</Badge>
+<Badge border>With border</Badge>
+<Badge border tone="success">Success</Badge>
+<Badge border tone="danger">Danger</Badge>`}
+      >
         <Badge>No border</Badge>
         <Badge border>With border</Badge>
         <Badge border tone="success">
@@ -88,7 +106,15 @@ export default function BadgeDocsPage() {
         </Badge>
       </PropSection>
 
-      <PropSection name="image" description="string | ReactNode — avatar next to label">
+      <PropSection
+        name="image"
+        description="string | ReactNode — avatar next to label"
+        code={`${imp}
+
+<Badge image="/avatar.png" alt="User">Ava</Badge>
+<Badge image="/avatar.png" tone="success" imagePosition="left">Online</Badge>
+<Badge image="/avatar.png" imagePosition="right" tone="warning">Pending</Badge>`}
+      >
         <Badge image={avatar} alt="User">
           Ava
         </Badge>
@@ -100,7 +126,14 @@ export default function BadgeDocsPage() {
         </Badge>
       </PropSection>
 
-      <PropSection name="icon" description="ReactNode — optional">
+      <PropSection
+        name="icon"
+        description="ReactNode — optional"
+        code={`${impIcon}
+
+<Badge icon={<CheckIcon />} tone="success">Done</Badge>
+<Badge icon={<CheckIcon />} iconPosition="right">Verified</Badge>`}
+      >
         <Badge icon={<CheckIcon />} tone="success">
           Done
         </Badge>

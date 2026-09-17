@@ -1,28 +1,8 @@
-import Demo from "@/components/demo";
 import Input from "@/components/input";
 import Table from "@/components/table";
 import { InstallBlock } from "@/components/docs/code-block";
+import { PropSection } from "@/components/docs/prop-section";
 import { SearchIcon } from "lucide-react";
-
-function PropSection({
-  name,
-  description,
-  children,
-}: {
-  name: string;
-  description: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="space-y-4">
-      <div className="space-y-1">
-        <h2 className="font-mono text-sm text-zinc-900 dark:text-zinc-100">{name}</h2>
-        <p className="text-sm text-zinc-500">{description}</p>
-      </div>
-      <Demo>{children}</Demo>
-    </section>
-  );
-}
 
 const inputProps = [
   { prop: "placeholder", type: "string", default: "—", description: "Hint text" },
@@ -42,6 +22,10 @@ const inputProps = [
   { prop: "className", type: "string", default: "—", description: "Extra classes" },
 ];
 
+const imp = `import { Input } from "@/components";`;
+const impIcon = `import { Input } from "@/components";
+import { SearchIcon } from "lucide-react";`;
+
 export default function InputDocsPage() {
   return (
     <article className="space-y-10">
@@ -59,34 +43,80 @@ export default function InputDocsPage() {
 
       <InstallBlock name="Input" />
 
-      <PropSection name="placeholder" description="string — hint text">
+      <PropSection
+        name="placeholder"
+        description="string — hint text"
+        code={`${imp}
+
+<Input placeholder="Email address" />`}
+      >
         <Input placeholder="Email address" />
       </PropSection>
 
-      <PropSection name="defaultValue" description="string — uncontrolled initial value">
+      <PropSection
+        name="defaultValue"
+        description="string — uncontrolled initial value"
+        code={`${imp}
+
+<Input defaultValue="hello@example.com" />`}
+      >
         <Input defaultValue="hello@example.com" />
       </PropSection>
 
-      <PropSection name="label" description="string — optional field label">
+      <PropSection
+        name="label"
+        description="string — optional field label"
+        code={`${imp}
+
+<Input label="Email" placeholder="you@domain.com" />`}
+      >
         <Input label="Email" placeholder="you@domain.com" />
       </PropSection>
 
-      <PropSection name="size" description="sm · md · lg — default md">
+      <PropSection
+        name="size"
+        description="sm · md · lg — default md"
+        code={`${imp}
+
+<Input size="sm" placeholder="Small" />
+<Input size="md" placeholder="Medium" />
+<Input size="lg" placeholder="Large" />`}
+      >
         <Input size="sm" placeholder="Small" />
         <Input size="md" placeholder="Medium" />
         <Input size="lg" placeholder="Large" />
       </PropSection>
 
-      <PropSection name="border" description="boolean — default false">
+      <PropSection
+        name="border"
+        description="boolean — default false"
+        code={`${imp}
+
+<Input placeholder="No border" />
+<Input border placeholder="With border" />`}
+      >
         <Input placeholder="No border" />
         <Input border placeholder="With border" />
       </PropSection>
 
-      <PropSection name="icon" description="ReactNode — optional, right by default">
+      <PropSection
+        name="icon"
+        description="ReactNode — optional, right by default"
+        code={`${impIcon}
+
+<Input placeholder="Search" icon={<SearchIcon />} />`}
+      >
         <Input placeholder="Search" icon={<SearchIcon className="size-4" />} />
       </PropSection>
 
-      <PropSection name="iconPosition" description="left · right — default right">
+      <PropSection
+        name="iconPosition"
+        description="left · right — default right"
+        code={`${impIcon}
+
+<Input placeholder="Left icon" icon={<SearchIcon />} iconPosition="left" />
+<Input placeholder="Right icon" icon={<SearchIcon />} iconPosition="right" />`}
+      >
         <Input
           placeholder="Left icon"
           icon={<SearchIcon className="size-4" />}
@@ -99,7 +129,17 @@ export default function InputDocsPage() {
         />
       </PropSection>
 
-      <PropSection name="error" description="string — error message + red border">
+      <PropSection
+        name="error"
+        description="string — error message + red border"
+        code={`${imp}
+
+<Input
+  label="Email"
+  defaultValue="not-an-email"
+  error="Invalid email"
+/>`}
+      >
         <Input
           label="Email"
           defaultValue="not-an-email"
@@ -107,12 +147,26 @@ export default function InputDocsPage() {
         />
       </PropSection>
 
-      <PropSection name="disabled" description="boolean — default false">
+      <PropSection
+        name="disabled"
+        description="boolean — default false"
+        code={`${imp}
+
+<Input placeholder="Enabled" />
+<Input disabled placeholder="Disabled" defaultValue="Locked" />`}
+      >
         <Input placeholder="Enabled" />
         <Input disabled placeholder="Disabled" defaultValue="Locked" />
       </PropSection>
 
-      <PropSection name="type" description="text · password — default text">
+      <PropSection
+        name="type"
+        description="text · password — default text"
+        code={`${imp}
+
+<Input type="text" placeholder="Text" />
+<Input type="password" placeholder="Password" defaultValue="secret" />`}
+      >
         <Input type="text" placeholder="Text" />
         <Input type="password" placeholder="Password" defaultValue="secret" />
       </PropSection>

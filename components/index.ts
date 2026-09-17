@@ -11,10 +11,13 @@ export { default as DatePicker } from "./date-picker";
 export type { DatePickerProps, DatePickerSize } from "./date-picker";
 
 export { default as Demo } from "./demo";
-export type { DemoProps } from "./demo";
+export type { DemoProps, DemoMode } from "./demo";
 
 export { default as Input } from "./input";
 export type { InputProps, InputSize, InputType } from "./input";
+
+export { default as InputOTP } from "./input-otp";
+export type { InputOTPProps, InputOTPSize, InputOTPLength } from "./input-otp";
 
 export { default as Radio } from "./radio";
 export type { RadioProps, RadioSize } from "./radio";
