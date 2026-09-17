@@ -7,7 +7,8 @@ import { ArrowRightIcon, SearchIcon } from "lucide-react";
 const buttonProps = [
   { prop: "children", type: "ReactNode", default: "—", description: "Button content" },
   { prop: "href", type: "string", default: "—", description: "Link destination" },
-  { prop: "variant", type: "solid | outline | ghost", default: "solid", description: "Visual style" },
+  { prop: "style", type: "primary | secondary | danger | warning | info", default: "primary", description: "Semantic color" },
+  { prop: "variant", type: "solid | outline | ghost", default: "solid", description: "Surface treatment" },
   { prop: "size", type: "sm | md | lg", default: "md", description: "Button scale" },
   { prop: "border", type: "boolean", default: "false", description: "Show outline" },
   { prop: "icon", type: "ReactNode", default: "—", description: "Trailing icon" },
@@ -43,6 +44,24 @@ export default function ButtonDocsPage() {
       </header>
 
       <InstallBlock name="Button" />
+
+      <PropSection
+        name="style"
+        description="primary · secondary · danger · warning · info — default primary"
+        code={`${imp}
+
+<Button style="primary">Primary</Button>
+<Button style="secondary">Secondary</Button>
+<Button style="danger">Danger</Button>
+<Button style="warning">Warning</Button>
+<Button style="info">Info</Button>`}
+      >
+        <Button style="primary">Primary</Button>
+        <Button style="secondary">Secondary</Button>
+        <Button style="danger">Danger</Button>
+        <Button style="warning">Warning</Button>
+        <Button style="info">Info</Button>
+      </PropSection>
 
       <PropSection
         name="variant"

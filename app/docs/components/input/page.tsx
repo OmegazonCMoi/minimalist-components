@@ -95,7 +95,6 @@ export default function InputDocsPage() {
 <Input placeholder="No border" />
 <Input border placeholder="With border" />`}
       >
-        <Input placeholder="No border" />
         <Input border placeholder="With border" />
       </PropSection>
 
@@ -155,7 +154,6 @@ export default function InputDocsPage() {
 <Input placeholder="Enabled" />
 <Input disabled placeholder="Disabled" defaultValue="Locked" />`}
       >
-        <Input placeholder="Enabled" />
         <Input disabled placeholder="Disabled" defaultValue="Locked" />
       </PropSection>
 

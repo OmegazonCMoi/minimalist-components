@@ -129,7 +129,6 @@ ${optionsCode}
 <Select options={options} placeholder="No border" />
 <Select border options={options} placeholder="With border" />`}
       >
-        <Select options={fruitOptions} placeholder="No border" />
         <Select border options={fruitOptions} placeholder="With border" />
       </PropSection>
 
@@ -167,7 +166,6 @@ ${optionsCode}
 <Select options={options} placeholder="Enabled" />
 <Select disabled options={options} defaultValue="banana" />`}
       >
-        <Select options={fruitOptions} placeholder="Enabled" />
         <Select disabled options={fruitOptions} defaultValue="banana" />
       </PropSection>
 

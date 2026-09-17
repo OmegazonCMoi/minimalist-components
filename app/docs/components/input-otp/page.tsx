@@ -116,7 +116,6 @@ export default function InputOTPDocsPage() {
           `${imp}\n\n<InputOTP letters defaultValue="A9F2K1" />`,
         ]}
       >
-        <InputOTP />
         <InputOTP letters defaultValue="A9F2K1" />
       </PropSection>
 
@@ -126,7 +125,6 @@ export default function InputOTPDocsPage() {
         stack
         codes={[`${imp}\n\n<InputOTP />`, `${imp}\n\n<InputOTP border />`]}
       >
-        <InputOTP />
         <InputOTP border />
       </PropSection>
 
@@ -151,7 +149,6 @@ export default function InputOTPDocsPage() {
           `${imp}\n\n<InputOTP disabled defaultValue="918273" />`,
         ]}
       >
-        <InputOTP />
         <InputOTP disabled defaultValue="918273" />
       </PropSection>
 

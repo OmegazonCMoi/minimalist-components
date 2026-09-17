@@ -92,7 +92,6 @@ export default function DatePickerDocsPage() {
 <DatePicker placeholder="No border" />
 <DatePicker border placeholder="With border" />`}
       >
-        <DatePicker placeholder="No border" />
         <DatePicker border placeholder="With border" />
       </PropSection>
 
@@ -154,7 +153,6 @@ export default function DatePickerDocsPage() {
 <DatePicker placeholder="Enabled" />
 <DatePicker disabled defaultValue="2026-09-16" />`}
       >
-        <DatePicker placeholder="Enabled" />
         <DatePicker disabled defaultValue="2026-09-16" />
       </PropSection>
 

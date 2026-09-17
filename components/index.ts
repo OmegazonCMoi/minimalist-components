@@ -2,7 +2,7 @@ export { default as Badge } from "./badge";
 export type { BadgeProps, BadgeVariant, BadgeSize, BadgeTone } from "./badge";
 
 export { default as Button } from "./button";
-export type { ButtonProps, ButtonVariant, ButtonSize } from "./button";
+export type { ButtonProps, ButtonVariant, ButtonStyle, ButtonSize } from "./button";
 
 export { default as Checkbox } from "./checkbox";
 export type { CheckboxProps, CheckboxSize } from "./checkbox";

@@ -91,7 +91,6 @@ export default function RadioDocsPage() {
 <Radio name="dis" value="on" label="Enabled" />
 <Radio name="dis2" value="off" label="Disabled" disabled defaultChecked />`}
       >
-        <Radio name="dis" value="on" label="Enabled" />
         <Radio name="dis2" value="off" label="Disabled" disabled defaultChecked />
       </PropSection>
 

@@ -38,12 +38,12 @@ export default function Demo({
       className={[
         "relative overflow-hidden rounded-xl border",
         showCode
-          ? "border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-950"
+          ? "border-zinc-200 bg-zinc-200/50 dark:border-zinc-800 dark:bg-zinc-900"
           : [
               "flex flex-wrap items-center justify-center gap-3 overflow-visible border-dashed p-8",
-              "border-zinc-300 bg-zinc-100/70",
+              "border-zinc-300 bg-zinc-200/50",
               "[background-image:radial-gradient(rgba(0,0,0,0.12)_1px,transparent_1px)] [background-size:12px_12px]",
-              "dark:border-zinc-700 dark:bg-zinc-950/40",
+              "dark:border-zinc-700 dark:bg-zinc-900",
               "dark:[background-image:radial-gradient(rgba(255,255,255,0.12)_1px,transparent_1px)]",
             ].join(" "),
         className,
