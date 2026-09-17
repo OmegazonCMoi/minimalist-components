@@ -40,3 +40,6 @@ export type {
   ToastOptions,
   ToastData,
 } from "./toast";
+
+export { default as Tooltip } from "./tooltip";
+export type { TooltipProps, TooltipSide, TooltipSize } from "./tooltip";

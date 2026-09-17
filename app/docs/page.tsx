@@ -89,7 +89,7 @@ export default function DocsPage() {
             <span className="font-medium text-zinc-800 dark:text-zinc-200">
               Display
             </span>{" "}
-            — Badge and Table for status and reference data.
+            — Badge, Table, Toast, and Tooltip for status and hints.
           </p>
           <p>
             <span className="font-medium text-zinc-800 dark:text-zinc-200">
