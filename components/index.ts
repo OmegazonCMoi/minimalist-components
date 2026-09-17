@@ -30,3 +30,13 @@ export type { SwitchProps, SwitchSize } from "./switch";
 
 export { default as Table } from "./table";
 export type { TableProps, TableColumn } from "./table";
+
+export { default as Toast, ToastProvider, useToast } from "./toast";
+export type {
+  ToastProps,
+  ToastTone,
+  ToastSize,
+  ToastPosition,
+  ToastOptions,
+  ToastData,
+} from "./toast";
