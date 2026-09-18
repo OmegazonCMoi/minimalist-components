@@ -4,6 +4,13 @@ export type { AlertDialogProps, AlertDialogTone } from "./alert-dialog";
 export { default as Badge } from "./badge";
 export type { BadgeProps, BadgeVariant, BadgeSize, BadgeTone } from "./badge";
 
+export { default as Breadcrumbs } from "./breadcrumbs";
+export type {
+  BreadcrumbsProps,
+  BreadcrumbItem,
+  BreadcrumbSize,
+} from "./breadcrumbs";
+
 export { default as Button } from "./button";
 export type { ButtonProps, ButtonVariant, ButtonStyle, ButtonSize } from "./button";
 
