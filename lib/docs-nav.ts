@@ -26,6 +26,7 @@ export const docsNav: DocsNavSection[] = [
       { title: "Checkbox", href: "/docs/components/checkbox" },
       { title: "Radio", href: "/docs/components/radio" },
       { title: "Switch", href: "/docs/components/switch" },
+      { title: "Slider", href: "/docs/components/slider" },
     ],
   },
   {

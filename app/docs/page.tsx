@@ -77,7 +77,7 @@ export default function DocsPage() {
             <span className="font-medium text-zinc-800 dark:text-zinc-200">
               Form
             </span>{" "}
-            — Input, Checkbox, Radio, Switch. Use these for fields and toggles.
+            — Input, Checkbox, Radio, Switch, Slider. Use these for fields and toggles.
           </p>
           <p>
             <span className="font-medium text-zinc-800 dark:text-zinc-200">
