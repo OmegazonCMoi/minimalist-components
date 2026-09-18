@@ -30,7 +30,10 @@ export const docsNav: DocsNavSection[] = [
   },
   {
     title: "Actions",
-    items: [{ title: "Button", href: "/docs/components/button" }],
+    items: [
+      { title: "Button", href: "/docs/components/button" },
+      { title: "Alert Dialog", href: "/docs/components/alert-dialog" },
+    ],
   },
   {
     title: "Display",

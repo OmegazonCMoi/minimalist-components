@@ -83,7 +83,7 @@ export default function DocsPage() {
             <span className="font-medium text-zinc-800 dark:text-zinc-200">
               Actions
             </span>{" "}
-            — Button (links, icons, icon-only).
+            — Button and Alert Dialog for actions and confirmations.
           </p>
           <p>
             <span className="font-medium text-zinc-800 dark:text-zinc-200">

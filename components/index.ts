@@ -1,3 +1,6 @@
+export { default as AlertDialog } from "./alert-dialog";
+export type { AlertDialogProps, AlertDialogTone } from "./alert-dialog";
+
 export { default as Badge } from "./badge";
 export type { BadgeProps, BadgeVariant, BadgeSize, BadgeTone } from "./badge";
 
