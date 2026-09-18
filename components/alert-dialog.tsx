@@ -40,6 +40,12 @@ const toneToStyle: Record<AlertDialogTone, ButtonStyle> = {
   warning: "warning",
 };
 
+const toneBorderClasses: Record<AlertDialogTone, string> = {
+  neutral: "border-zinc-400/55 dark:border-zinc-700/70",
+  danger: "border-[#fecaca]/25 dark:border-[#f87171]/12",
+  warning: "border-[#fef08a]/25 dark:border-[#eab308]/12",
+};
+
 export default function AlertDialog({
   title,
   description,
@@ -186,10 +192,11 @@ export default function AlertDialog({
               aria-labelledby={titleId}
               aria-describedby={description ? descriptionId : undefined}
               className={[
-                "pointer-events-auto relative w-full max-w-md rounded-2xl p-5 shadow-xl",
-                "border-4 border-zinc-400/55 bg-white/75 text-zinc-900 backdrop-blur-sm",
-                "dark:border-zinc-700/70 dark:bg-zinc-950/80 dark:text-zinc-50",
+                "pointer-events-auto relative w-full max-w-md rounded-2xl border-4 p-5 shadow-xl",
+                "bg-white/75 text-zinc-900 backdrop-blur-sm",
+                "dark:bg-zinc-950/80 dark:text-zinc-50",
                 "shadow-zinc-900/10 dark:shadow-black/40",
+                toneBorderClasses[tone],
                 className,
               ]
                 .filter(Boolean)
