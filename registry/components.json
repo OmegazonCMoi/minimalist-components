@@ -1,0 +1,122 @@
+[
+  {
+    "name": "badge",
+    "description": "Compact status label",
+    "files": [{ "source": "components/badge.tsx", "target": "badge.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": []
+  },
+  {
+    "name": "breadcrumbs",
+    "description": "Navigation trail",
+    "files": [{ "source": "components/breadcrumbs.tsx", "target": "breadcrumbs.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": ["lucide-react"]
+  },
+  {
+    "name": "button",
+    "description": "Action control with variants and styles",
+    "files": [{ "source": "components/button.tsx", "target": "button.tsx" }],
+    "registryDependencies": [],
+    "utils": [{ "source": "lib/motion.ts", "target": "motion.ts" }],
+    "dependencies": ["framer-motion"]
+  },
+  {
+    "name": "checkbox",
+    "description": "Boolean checkbox field",
+    "files": [{ "source": "components/checkbox.tsx", "target": "checkbox.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": []
+  },
+  {
+    "name": "date-picker",
+    "description": "Calendar date picker",
+    "files": [{ "source": "components/date-picker.tsx", "target": "date-picker.tsx" }],
+    "registryDependencies": [],
+    "utils": [{ "source": "lib/motion.ts", "target": "motion.ts" }],
+    "dependencies": ["framer-motion", "lucide-react"]
+  },
+  {
+    "name": "input",
+    "description": "Text input field",
+    "files": [{ "source": "components/input.tsx", "target": "input.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": []
+  },
+  {
+    "name": "input-otp",
+    "description": "One-time password input",
+    "files": [{ "source": "components/input-otp.tsx", "target": "input-otp.tsx" }],
+    "registryDependencies": [],
+    "utils": [{ "source": "lib/motion.ts", "target": "motion.ts" }],
+    "dependencies": ["framer-motion"]
+  },
+  {
+    "name": "radio",
+    "description": "Radio option field",
+    "files": [{ "source": "components/radio.tsx", "target": "radio.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": []
+  },
+  {
+    "name": "select",
+    "description": "Custom select listbox",
+    "files": [{ "source": "components/select.tsx", "target": "select.tsx" }],
+    "registryDependencies": [],
+    "utils": [{ "source": "lib/motion.ts", "target": "motion.ts" }],
+    "dependencies": ["framer-motion", "lucide-react"]
+  },
+  {
+    "name": "slider",
+    "description": "Numeric range slider",
+    "files": [{ "source": "components/slider.tsx", "target": "slider.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": []
+  },
+  {
+    "name": "switch",
+    "description": "On/off toggle",
+    "files": [{ "source": "components/switch.tsx", "target": "switch.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": []
+  },
+  {
+    "name": "table",
+    "description": "Simple data table",
+    "files": [{ "source": "components/table.tsx", "target": "table.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": []
+  },
+  {
+    "name": "toast",
+    "description": "Toast notifications + provider",
+    "files": [{ "source": "components/toast.tsx", "target": "toast.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": ["framer-motion", "lucide-react"]
+  },
+  {
+    "name": "tooltip",
+    "description": "Hover/focus tooltip",
+    "files": [{ "source": "components/tooltip.tsx", "target": "tooltip.tsx" }],
+    "registryDependencies": [],
+    "utils": [{ "source": "lib/motion.ts", "target": "motion.ts" }],
+    "dependencies": ["framer-motion"]
+  },
+  {
+    "name": "alert-dialog",
+    "description": "Modal confirmation dialog",
+    "files": [{ "source": "components/alert-dialog.tsx", "target": "alert-dialog.tsx" }],
+    "registryDependencies": ["button"],
+    "utils": [{ "source": "lib/motion.ts", "target": "motion.ts" }],
+    "dependencies": ["framer-motion"]
+  }
+]

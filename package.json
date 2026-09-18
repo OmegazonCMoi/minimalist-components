@@ -2,11 +2,25 @@
   "name": "minimalist-components",
   "version": "0.1.0",
   "private": true,
+  "description": "Minimalist UI components for Next.js — copy into your project via CLI",
+  "bin": {
+    "minimalist-components": "./bin/minimalist-components.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "templates",
+    "README.md"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync:templates": "node scripts/sync-templates.mjs",
+    "build:lib": "tsup",
+    "build:cli": "npm run sync:templates && tsup",
+    "prepack": "npm run build:cli"
   },
   "dependencies": {
     "framer-motion": "^13.4.0",
@@ -24,6 +38,20 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "tsup": "^8.5.1",
     "typescript": "^5"
+  },
+  "peerDependencies": {
+    "next": ">=14",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

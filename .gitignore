@@ -16,6 +16,7 @@ out/
 # production / build
 build/
 dist/
+# templates/ is generated for npm pack — keep committed after sync
 
 # testing
 coverage/
@@ -62,3 +63,4 @@ Desktop.ini
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
+tmp-cli-test/
