@@ -1,7 +1,7 @@
 {
   "name": "minimalist-components",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "Minimalist UI components for Next.js — copy into your project via CLI",
   "bin": {
     "minimalist-components": "./bin/minimalist-components.js"
