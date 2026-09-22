@@ -33,7 +33,7 @@ const solidClasses: Record<ButtonStyle, string> = {
   primary:
     "bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-white",
   secondary:
-    "bg-white text-zinc-900 hover:bg-zinc-50 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100",
+    "bg-white text-zinc-900 hover:bg-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700",
   danger:
     "bg-[#dc2626] text-white hover:bg-[#b91c1c] dark:bg-[#ef4444] dark:hover:bg-[#f87171]",
   warning:
@@ -78,7 +78,7 @@ const borderClasses: Record<ButtonStyle, string> = {
   primary:
     "border border-zinc-900 hover:border-zinc-700 dark:border-zinc-200 dark:hover:border-white",
   secondary:
-    "border border-zinc-400 hover:border-zinc-600 dark:border-zinc-500 dark:hover:border-zinc-300",
+    "border border-zinc-400 hover:border-zinc-600 dark:border-zinc-700 dark:hover:border-zinc-500",
   danger:
     "border border-[#dc2626]/70 hover:border-[#b91c1c] dark:border-[#ef4444]/60 dark:hover:border-[#f87171]",
   warning:
