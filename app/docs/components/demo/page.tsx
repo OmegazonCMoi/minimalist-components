@@ -21,7 +21,7 @@ export default function DemoDocsPage() {
         </p>
       </header>
 
-      <InstallBlock name="Demo" />
+      <InstallBlock name="Demo" cli={false} />
 
       <section className="space-y-4">
         <div className="space-y-1">
