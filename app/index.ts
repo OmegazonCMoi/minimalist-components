@@ -6,6 +6,7 @@ export { default as Checkbox } from "../components/checkbox";
 export { default as Radio } from "../components/radio";
 export { default as Switch } from "../components/switch";
 export { default as Slider } from "../components/slider";
+export { default as Progress } from "../components/progress";
 export { default as Tooltip } from "../components/tooltip";
 export { default as Table } from "../components/table";
 export { default as Toast } from "../components/toast";

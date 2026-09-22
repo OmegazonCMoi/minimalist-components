@@ -56,6 +56,14 @@
     "dependencies": ["framer-motion"]
   },
   {
+    "name": "progress",
+    "description": "Progress bar with left ↔ right loading sweep",
+    "files": [{ "source": "components/progress.tsx", "target": "progress.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": ["framer-motion"]
+  },
+  {
     "name": "radio",
     "description": "Radio option field",
     "files": [{ "source": "components/radio.tsx", "target": "radio.tsx" }],
