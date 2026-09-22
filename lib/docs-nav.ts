@@ -41,6 +41,7 @@ export const docsNav: DocsNavSection[] = [
     items: [
       { title: "Badge", href: "/docs/components/badge" },
       { title: "Breadcrumbs", href: "/docs/components/breadcrumbs" },
+      { title: "Collapsible", href: "/docs/components/collapsible" },
       { title: "Progress", href: "/docs/components/progress" },
       { title: "Separator", href: "/docs/components/separator" },
       { title: "Table", href: "/docs/components/table" },

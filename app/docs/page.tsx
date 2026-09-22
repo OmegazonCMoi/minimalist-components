@@ -128,7 +128,8 @@ export default function DocsPage() {
             <span className="font-medium text-zinc-800 dark:text-zinc-200">
               Display
             </span>{" "}
-            — Badge, Breadcrumbs, Progress, Separator, Table, Toast, Tooltip.
+            — Badge, Breadcrumbs, Collapsible, Progress, Separator, Table, Toast,
+            Tooltip.
           </p>
           <p>
             <span className="font-medium text-zinc-800 dark:text-zinc-200">

@@ -17,6 +17,18 @@ export type { ButtonProps, ButtonVariant, ButtonStyle, ButtonSize } from "./butt
 export { default as Checkbox } from "./checkbox";
 export type { CheckboxProps, CheckboxSize } from "./checkbox";
 
+export {
+  default as Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "./collapsible";
+export type {
+  CollapsibleProps,
+  CollapsibleTriggerProps,
+  CollapsibleContentProps,
+  CollapsibleSize,
+} from "./collapsible";
+
 export { default as DatePicker } from "./date-picker";
 export type { DatePickerProps, DatePickerSize } from "./date-picker";
 
