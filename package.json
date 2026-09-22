@@ -1,6 +1,6 @@
 {
   "name": "minimalist-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "Minimalist UI components for Next.js — copy into your project via CLI",
   "bin": {
@@ -25,9 +25,9 @@
   "dependencies": {
     "framer-motion": "^13.4.0",
     "lucide-react": "^1.46.0",
-    "next": "^16.3.5",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "next": ">=14",
+    "react": ">=18",
+    "react-dom": ">=18",
     "sugar-high": "^2.4.1"
   },
   "devDependencies": {

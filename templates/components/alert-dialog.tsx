@@ -10,7 +10,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import Button, { type ButtonStyle } from "@/components/ui/button";
+import Button, { type ButtonStyle } from "@/components/button";
 import { EASE_OUT } from "@/lib/motion";
 
 type AlertDialogTone = "neutral" | "danger" | "warning";

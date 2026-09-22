@@ -64,3 +64,4 @@ Desktop.ini
 !.vscode/tasks.json
 !.vscode/launch.json
 tmp-cli-test/
+*.tgz
