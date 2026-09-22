@@ -13,6 +13,8 @@ type DemoProps = {
   className?: string;
   /** Hide the top-right demo/code switcher. */
   toolbar?: boolean;
+  /** Dot grid behind the preview. Default true. */
+  pattern?: boolean;
 };
 
 const modes: Array<{
@@ -29,6 +31,7 @@ export default function Demo({
   code,
   className = "",
   toolbar = true,
+  pattern = true,
 }: DemoProps) {
   const [mode, setMode] = useState<DemoMode>("demo");
   const showCode = mode === "code";
@@ -41,11 +44,17 @@ export default function Demo({
           ? "border-zinc-200 bg-zinc-200/50 dark:border-zinc-800 dark:bg-zinc-900"
           : [
               "flex flex-wrap items-center justify-center gap-3 overflow-visible border-dashed p-8",
-              "border-zinc-300 bg-zinc-200/50",
-              "[background-image:radial-gradient(rgba(0,0,0,0.12)_1px,transparent_1px)] [background-size:12px_12px]",
-              "dark:border-zinc-700 dark:bg-zinc-900",
-              "dark:[background-image:radial-gradient(rgba(255,255,255,0.12)_1px,transparent_1px)]",
-            ].join(" "),
+              "border-zinc-300 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900",
+              pattern
+                ? [
+                    "bg-zinc-200/50",
+                    "[background-image:radial-gradient(rgba(0,0,0,0.12)_1px,transparent_1px)] [background-size:12px_12px]",
+                    "dark:[background-image:radial-gradient(rgba(255,255,255,0.12)_1px,transparent_1px)]",
+                  ].join(" ")
+                : null,
+            ]
+              .filter(Boolean)
+              .join(" "),
         className,
       ]
         .filter(Boolean)

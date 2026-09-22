@@ -80,6 +80,14 @@
     "dependencies": ["framer-motion", "lucide-react"]
   },
   {
+    "name": "separator",
+    "description": "Horizontal or vertical divider",
+    "files": [{ "source": "components/separator.tsx", "target": "separator.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": []
+  },
+  {
     "name": "slider",
     "description": "Numeric range slider",
     "files": [{ "source": "components/slider.tsx", "target": "slider.tsx" }],

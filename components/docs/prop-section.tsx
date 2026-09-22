@@ -14,6 +14,8 @@ type PropSectionProps = {
   codes?: string[];
   /** One demo block per child (for enum params). */
   stack?: boolean;
+  /** Dot grid behind demos. Default true. */
+  pattern?: boolean;
 };
 
 export function PropSection({
@@ -23,6 +25,7 @@ export function PropSection({
   code,
   codes,
   stack = false,
+  pattern = true,
 }: PropSectionProps) {
   const items = Children.toArray(children);
 
@@ -35,13 +38,15 @@ export function PropSection({
       {stack ? (
         <div className="space-y-3">
           {items.map((child, index) => (
-            <Demo key={index} code={codes?.[index] ?? code}>
+            <Demo key={index} code={codes?.[index] ?? code} pattern={pattern}>
               {child}
             </Demo>
           ))}
         </div>
       ) : (
-        <Demo code={code}>{children}</Demo>
+        <Demo code={code} pattern={pattern}>
+          {children}
+        </Demo>
       )}
     </section>
   );

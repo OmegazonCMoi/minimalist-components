@@ -38,6 +38,9 @@ export type { RadioProps, RadioSize } from "./radio";
 export { default as Select } from "./select";
 export type { SelectProps, SelectSize, SelectOption } from "./select";
 
+export { default as Separator } from "./separator";
+export type { SeparatorProps, SeparatorOrientation } from "./separator";
+
 export { default as Slider } from "./slider";
 export type { SliderProps, SliderSize } from "./slider";
 

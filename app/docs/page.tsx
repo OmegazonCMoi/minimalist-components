@@ -89,7 +89,7 @@ export default function DocsPage() {
             <span className="font-medium text-zinc-800 dark:text-zinc-200">
               Display
             </span>{" "}
-            — Badge, Breadcrumbs, Progress, Table, Toast, and Tooltip for status and hints.
+            — Badge, Breadcrumbs, Progress, Separator, Table, Toast, and Tooltip.
           </p>
           <p>
             <span className="font-medium text-zinc-800 dark:text-zinc-200">
