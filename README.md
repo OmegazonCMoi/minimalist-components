@@ -39,6 +39,8 @@ Install peer libraries when the CLI asks for them (example):
 npm install framer-motion lucide-react
 ```
 
+`framer-motion` and `lucide-react` also ship as dependencies of this package. The CLI still suggests adding them to **your** app so imports resolve cleanly (especially with pnpm).
+
 ---
 
 ## CLI
@@ -140,4 +142,4 @@ npm run sync:templates
 
 ## License
 
-MIT
+MIT — see [LICENSE](./LICENSE).

@@ -1,8 +1,26 @@
 {
   "name": "minimalist-components",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": false,
   "description": "Minimalist UI components for Next.js — copy into your project via CLI",
+  "license": "MIT",
+  "author": "OmegazonCMoi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmegazonCMoi/minimalist-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OmegazonCMoi/minimalist-components/issues"
+  },
+  "homepage": "https://github.com/OmegazonCMoi/minimalist-components#readme",
+  "keywords": [
+    "react",
+    "nextjs",
+    "tailwind",
+    "ui",
+    "components",
+    "cli"
+  ],
   "bin": {
     "minimalist-components": "./bin/minimalist-components.js"
   },
@@ -10,7 +28,8 @@
     "bin",
     "dist",
     "templates",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "dev": "next dev",
@@ -24,22 +43,7 @@
   },
   "dependencies": {
     "framer-motion": "^13.4.0",
-    "lucide-react": "^1.46.0",
-    "next": ">=14",
-    "react": ">=18",
-    "react-dom": ">=18",
-    "sugar-high": "^2.4.1"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
-    "tailwindcss": "^4",
-    "tsup": "^8.5.1",
-    "typescript": "^5"
+    "lucide-react": "^1.46.0"
   },
   "peerDependencies": {
     "next": ">=14",
@@ -49,7 +53,28 @@
   "peerDependenciesMeta": {
     "next": {
       "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
     }
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "next": "^16.1.6",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "sugar-high": "^2.4.1",
+    "tailwindcss": "^4",
+    "tsup": "^8.5.1",
+    "typescript": "^5"
   },
   "engines": {
     "node": ">=18"
