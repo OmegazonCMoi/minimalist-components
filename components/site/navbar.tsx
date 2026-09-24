@@ -64,6 +64,14 @@ export default function SiteNavbar({
             </li>
             <li>
               <Link
+                href="/docs/blocks"
+                className="transition-colors hover:text-zinc-900 dark:hover:text-zinc-200"
+              >
+                Blocks
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/docs"
                 className="transition-colors hover:text-zinc-900 dark:hover:text-zinc-200"
               >

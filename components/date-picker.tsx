@@ -334,20 +334,20 @@ export default function DatePicker({
               transition={reduced ? { duration: 0 } : popoverTransition}
               style={{ transformOrigin: "50% 0%" }}
               className={[
-                "absolute top-full left-0 z-[200] mt-1.5 w-full p-3",
+                "absolute top-full left-0 z-[200] mt-1.5 w-max min-w-[16.5rem] p-2.5",
                 "rounded-2xl border border-zinc-200 bg-white shadow-lg",
                 "dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-black/40",
                 "outline-none",
               ].join(" ")}
             >
-              <div className="mb-2 flex items-center justify-between gap-2">
+              <div className="mb-1.5 flex items-center justify-between gap-1">
                 <button
                   type="button"
                   aria-label="Previous month"
                   onClick={() => shiftMonth(-1)}
-                  className="inline-flex size-8 cursor-pointer items-center justify-center rounded-xl text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+                  className="inline-flex size-7 cursor-pointer items-center justify-center rounded-lg text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
                 >
-                  <ChevronLeftIcon className="size-4" />
+                  <ChevronLeftIcon className="size-3.5" />
                 </button>
                 <p className="text-sm font-medium capitalize text-zinc-900 dark:text-zinc-50">
                   {monthLabel(view.year, view.month, locale)}
@@ -356,27 +356,27 @@ export default function DatePicker({
                   type="button"
                   aria-label="Next month"
                   onClick={() => shiftMonth(1)}
-                  className="inline-flex size-8 cursor-pointer items-center justify-center rounded-xl text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
+                  className="inline-flex size-7 cursor-pointer items-center justify-center rounded-lg text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"
                 >
-                  <ChevronRightIcon className="size-4" />
+                  <ChevronRightIcon className="size-3.5" />
                 </button>
               </div>
 
-              <div className="mb-1 grid grid-cols-7 gap-1">
+              <div className="mb-0.5 grid grid-cols-7 gap-0.5">
                 {WEEKDAYS.map((day) => (
                   <div
                     key={day}
-                    className="flex h-8 items-center justify-center text-[0.65rem] font-medium uppercase tracking-wide text-zinc-400 dark:text-zinc-500"
+                    className="flex size-9 items-center justify-center text-[0.65rem] font-medium uppercase tracking-wide text-zinc-400 dark:text-zinc-500"
                   >
                     {day}
                   </div>
                 ))}
               </div>
 
-              <div className="grid grid-cols-7 gap-1">
+              <div className="grid grid-cols-7 gap-0.5">
                 {days.map((date, index) => {
                   if (!date) {
-                    return <div key={`empty-${index}`} className="h-9" />;
+                    return <div key={`empty-${index}`} className="size-9" />;
                   }
 
                   const iso = toISO(date);
@@ -395,14 +395,14 @@ export default function DatePicker({
                       aria-pressed={selected}
                       onClick={() => commit(iso)}
                       className={[
-                        "flex h-9 cursor-pointer items-center justify-center rounded-xl text-sm transition-colors",
+                        "flex size-9 items-center justify-center rounded-lg text-sm transition-colors",
                         out
                           ? "cursor-not-allowed opacity-30"
                           : selected
                             ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
                             : isToday
                               ? "bg-zinc-100 font-medium text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-700"
-                              : "text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
+                              : "cursor-pointer text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
                       ].join(" ")}
                     >
                       {date.getDate()}
@@ -411,7 +411,7 @@ export default function DatePicker({
                 })}
               </div>
 
-              <div className="mt-2 flex items-center justify-between gap-2 border-t border-zinc-100 pt-2 dark:border-zinc-800">
+              <div className="mt-1.5 flex items-center justify-between gap-2 border-t border-zinc-100 pt-1.5 dark:border-zinc-800">
                 <button
                   type="button"
                   className="cursor-pointer rounded-xl px-2.5 py-1.5 text-xs font-medium text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-50"

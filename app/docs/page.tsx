@@ -61,6 +61,16 @@ export default function DocsPage() {
             to set up the CLI.
           </li>
           <li>
+            Browse{" "}
+            <Link
+              href="/docs/blocks"
+              className="text-zinc-800 underline-offset-4 hover:underline dark:text-zinc-200"
+            >
+              Blocks
+            </Link>{" "}
+            for full UI compositions.
+          </li>
+          <li>
             Open a component in the sidebar (Form, Actions, Display…).
           </li>
           <li>
@@ -165,12 +175,12 @@ export default function DocsPage() {
           Installation
         </Button>
         <Button
-          href="/docs/components/button"
+          href="/docs/blocks"
           variant="outline"
           border
           icon={<ArrowRightIcon className="size-4" />}
         >
-          Button
+          Blocks
         </Button>
       </section>
     </article>
