@@ -76,14 +76,14 @@ const variantByStyle: Record<
 
 const borderClasses: Record<ButtonStyle, string> = {
   primary:
-    "border border-zinc-900 hover:border-zinc-700 dark:border-zinc-200 dark:hover:border-white",
+    "border border-zinc-300 hover:border-zinc-400 dark:border-zinc-200 dark:hover:border-white",
   secondary:
-    "border border-zinc-400 hover:border-zinc-600 dark:border-zinc-700 dark:hover:border-zinc-500",
+    "border border-zinc-200 hover:border-zinc-300 dark:border-zinc-700 dark:hover:border-zinc-500",
   danger:
-    "border border-[#dc2626]/70 hover:border-[#b91c1c] dark:border-[#ef4444]/60 dark:hover:border-[#f87171]",
+    "border border-[#fca5a5] hover:border-[#f87171] dark:border-[#ef4444]/60 dark:hover:border-[#f87171]",
   warning:
-    "border border-[#ca8a04]/70 hover:border-[#a16207] dark:border-[#eab308]/50 dark:hover:border-[#fde047]",
-  info: "border border-[#2563eb]/60 hover:border-[#1d4ed8] dark:border-[#3b82f6]/50 dark:hover:border-[#60a5fa]",
+    "border border-[#fde047]/80 hover:border-[#eab308] dark:border-[#eab308]/50 dark:hover:border-[#fde047]",
+  info: "border border-[#93c5fd] hover:border-[#60a5fa] dark:border-[#3b82f6]/50 dark:hover:border-[#60a5fa]",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -124,7 +124,9 @@ export default function Button({
     "inline-flex items-center justify-center rounded-2xl font-sans font-medium tracking-normal transition-colors",
     disabled ? "cursor-not-allowed opacity-40" : "cursor-pointer",
     variantByStyle[variant][style],
-    border ? borderClasses[style] : "border border-transparent",
+    border || variant === "outline"
+      ? borderClasses[style]
+      : "border border-transparent",
     iconOnly ? iconOnlySizeClasses[size] : sizeClasses[size],
     className,
   ]

@@ -188,13 +188,13 @@ export default function DatePicker({
     "relative flex w-full max-w-sm items-center font-sans transition-colors outline-none",
     disabled ? "cursor-not-allowed opacity-40" : "cursor-pointer",
     error
-      ? "border border-[#f87171] bg-[#fef2f2] text-[#991b1b] focus-visible:border-[#f87171] dark:bg-[#450a0a]/50 dark:text-[#fecaca] dark:focus-visible:border-[#fca5a5]"
+      ? "border border-[#fca5a5] bg-[#fef2f2] text-[#991b1b] focus-visible:border-[#f87171] dark:border-[#f87171] dark:bg-[#450a0a]/50 dark:text-[#fecaca] dark:focus-visible:border-[#fca5a5]"
       : border
-        ? "border border-zinc-300 bg-white text-zinc-900 focus-visible:border-zinc-500 focus-visible:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus-visible:border-zinc-400 dark:focus-visible:bg-zinc-800"
+        ? "border border-zinc-200 bg-white text-zinc-900 focus-visible:border-zinc-300 focus-visible:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus-visible:border-zinc-400 dark:focus-visible:bg-zinc-800"
         : "border border-transparent bg-zinc-200/80 text-zinc-900 focus-visible:bg-zinc-200 dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus-visible:bg-zinc-800",
     open && !error && !border ? "bg-zinc-200 dark:bg-zinc-800" : "",
     open && !error && border
-      ? "border-zinc-500 bg-zinc-50 dark:border-zinc-400 dark:bg-zinc-800"
+      ? "border-zinc-300 bg-zinc-50 dark:border-zinc-400 dark:bg-zinc-800"
       : "",
     sizeClasses[size],
     className,
@@ -402,7 +402,7 @@ export default function DatePicker({
                             ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
                             : isToday
                               ? "bg-zinc-100 font-medium text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-700"
-                              : "cursor-pointer text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
+                              : "cursor-pointer text-zinc-700 hover:bg-zinc-200 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
                       ].join(" ")}
                     >
                       {date.getDate()}

@@ -248,11 +248,11 @@ export default function Slider({
 
         <div
           className={[
-            "absolute top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 shadow-sm transition-[box-shadow]",
+            "absolute top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-sm transition-[box-shadow]",
             thumbSize[size],
             error
-              ? "border-[#ef4444] bg-white dark:bg-zinc-950"
-              : "border-zinc-900 bg-white dark:border-zinc-100 dark:bg-zinc-950",
+              ? "bg-[#ef4444]"
+              : "bg-zinc-900 dark:bg-zinc-100",
             disabled
               ? ""
               : "hover:shadow-md focus-visible:outline-none",

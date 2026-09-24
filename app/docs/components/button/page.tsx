@@ -10,7 +10,7 @@ const buttonProps = [
   { prop: "style", type: "primary | secondary | danger | warning | info", default: "primary", description: "Semantic color" },
   { prop: "variant", type: "solid | outline | ghost", default: "solid", description: "Surface treatment" },
   { prop: "size", type: "sm | md | lg", default: "md", description: "Button scale" },
-  { prop: "border", type: "boolean", default: "false", description: "Show outline" },
+  { prop: "border", type: "boolean", default: "false", description: "Force outline (auto on variant outline)" },
   { prop: "icon", type: "ReactNode", default: "—", description: "Trailing icon" },
   { prop: "iconPosition", type: "left | right", default: "right", description: "Icon side" },
   { prop: "iconOnly", type: "boolean", default: "false", description: "Icon button" },

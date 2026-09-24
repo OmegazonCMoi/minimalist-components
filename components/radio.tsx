@@ -92,8 +92,8 @@ export default function Radio({
                 ? "border-[#f87171] bg-white dark:bg-zinc-900"
                 : "border-zinc-900 bg-white dark:border-zinc-200 dark:bg-zinc-900"
               : error
-                ? "border-[#f87171] bg-white dark:bg-zinc-900"
-                : "border-zinc-400 bg-white dark:border-zinc-600 dark:bg-zinc-900",
+                ? "border-[#fca5a5] bg-white dark:bg-zinc-900"
+                : "border-zinc-200 bg-white dark:border-zinc-600 dark:bg-zinc-900",
           ].join(" ")}
         >
           <span

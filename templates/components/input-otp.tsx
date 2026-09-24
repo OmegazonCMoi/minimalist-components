@@ -206,9 +206,9 @@ export default function InputOTP({
       "text-center caret-transparent selection:bg-transparent",
       disabled ? "cursor-not-allowed opacity-40" : "cursor-text",
       error
-        ? "border border-[#f87171] bg-[#fef2f2] text-[#991b1b] focus:border-[#f87171] dark:bg-[#450a0a]/50 dark:text-[#fecaca] dark:focus:border-[#fca5a5]"
+        ? "border border-[#fca5a5] bg-[#fef2f2] text-[#991b1b] focus:border-[#f87171] dark:border-[#f87171] dark:bg-[#450a0a]/50 dark:text-[#fecaca] dark:focus:border-[#fca5a5]"
         : border
-          ? "border border-zinc-300 bg-white text-zinc-900 focus:border-zinc-500 focus:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus:border-zinc-400 dark:focus:bg-zinc-800"
+          ? "border border-zinc-200 bg-white text-zinc-900 focus:border-zinc-300 focus:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus:border-zinc-400 dark:focus:bg-zinc-800"
           : "border border-transparent bg-zinc-200/80 text-zinc-900 focus:bg-zinc-200 dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus:bg-zinc-800",
       filled && !error ? "text-zinc-950 dark:text-zinc-50" : "",
       slotSizeClasses[size],
