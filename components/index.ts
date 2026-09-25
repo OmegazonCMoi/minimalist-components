@@ -41,6 +41,9 @@ export type { InputProps, InputSize, InputType } from "./input";
 export { default as InputOTP } from "./input-otp";
 export type { InputOTPProps, InputOTPSize, InputOTPLength } from "./input-otp";
 
+export { default as Textarea } from "./textarea";
+export type { TextareaProps, TextareaSize } from "./textarea";
+
 export { default as Progress } from "./progress";
 export type { ProgressProps, ProgressSize, ProgressTone } from "./progress";
 

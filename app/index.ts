@@ -1,6 +1,7 @@
 export { default as Button } from "../components/button";
 export { default as Badge } from "../components/badge";
 export { default as Input } from "../components/input";
+export { default as Textarea } from "../components/textarea";
 export { default as Select } from "../components/select";
 export { default as Checkbox } from "../components/checkbox";
 export { default as Radio } from "../components/radio";

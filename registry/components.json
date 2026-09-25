@@ -56,6 +56,14 @@
     "dependencies": []
   },
   {
+    "name": "textarea",
+    "description": "Multi-line text field",
+    "files": [{ "source": "components/textarea.tsx", "target": "textarea.tsx" }],
+    "registryDependencies": [],
+    "utils": [],
+    "dependencies": []
+  },
+  {
     "name": "input-otp",
     "description": "One-time password input",
     "files": [{ "source": "components/input-otp.tsx", "target": "input-otp.tsx" }],

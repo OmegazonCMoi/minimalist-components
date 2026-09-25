@@ -125,8 +125,8 @@ export default function DocsPage() {
             <span className="font-medium text-zinc-800 dark:text-zinc-200">
               Form
             </span>{" "}
-            — Input, Input OTP, Select, Date Picker, Checkbox, Radio, Switch,
-            Slider.
+            — Input, Textarea, Input OTP, Select, Date Picker, Checkbox, Radio,
+            Switch, Slider.
           </p>
           <p>
             <span className="font-medium text-zinc-800 dark:text-zinc-200">
