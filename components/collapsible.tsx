@@ -99,9 +99,9 @@ function Collapsible({
   const framed = surface || border;
 
   const frameTone = surface
-    ? "border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900"
+    ? "border border-zinc-200 bg-zinc-100 dark:border-[#333338] dark:bg-zinc-900"
     : border
-      ? "border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950"
+      ? "border border-zinc-200 bg-white dark:border-[#333338] dark:bg-zinc-950"
       : null;
 
   return (

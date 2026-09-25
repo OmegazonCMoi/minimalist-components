@@ -76,9 +76,9 @@ const variantByStyle: Record<
 
 const borderClasses: Record<ButtonStyle, string> = {
   primary:
-    "border border-zinc-300 hover:border-zinc-400 dark:border-zinc-200 dark:hover:border-white",
+    "border border-zinc-300 hover:border-zinc-400 dark:border-zinc-400 dark:hover:border-zinc-200",
   secondary:
-    "border border-zinc-200 hover:border-zinc-300 dark:border-zinc-700 dark:hover:border-zinc-500",
+    "border border-zinc-200 hover:border-zinc-300 dark:border-[#333338] dark:hover:border-zinc-600",
   danger:
     "border border-[#fca5a5] hover:border-[#f87171] dark:border-[#ef4444]/60 dark:hover:border-[#f87171]",
   warning:

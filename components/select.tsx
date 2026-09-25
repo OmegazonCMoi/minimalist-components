@@ -95,11 +95,11 @@ export default function Select({
     error
       ? "border border-[#fca5a5] bg-[#fef2f2] text-[#991b1b] focus-visible:border-[#f87171] dark:border-[#f87171] dark:bg-[#450a0a]/50 dark:text-[#fecaca] dark:focus-visible:border-[#fca5a5]"
       : border
-        ? "border border-zinc-200 bg-white text-zinc-900 focus-visible:border-zinc-300 focus-visible:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus-visible:border-zinc-400 dark:focus-visible:bg-zinc-800"
+        ? "border border-zinc-200 bg-white text-zinc-900 focus-visible:border-zinc-300 focus-visible:bg-zinc-50 dark:border-[#333338] dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus-visible:border-zinc-500 dark:focus-visible:bg-zinc-800"
         : "border border-transparent bg-zinc-200/80 text-zinc-900 focus-visible:bg-zinc-200 dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus-visible:bg-zinc-800",
     open && !error && !border ? "bg-zinc-200 dark:bg-zinc-800" : "",
     open && !error && border
-      ? "border-zinc-300 bg-zinc-50 dark:border-zinc-400 dark:bg-zinc-800"
+      ? "border-zinc-300 bg-zinc-50 dark:border-zinc-500 dark:bg-zinc-800"
       : "",
     sizeClasses[size],
     className,
@@ -305,7 +305,7 @@ export default function Select({
               className={[
                 "absolute top-full left-0 z-[200] mt-1.5 max-h-60 w-full overflow-auto p-1",
                 "rounded-2xl border border-zinc-200 bg-white shadow-lg",
-                "dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-black/40",
+                "dark:border-[#333338] dark:bg-zinc-900 dark:shadow-black/40",
                 "outline-none",
               ].join(" ")}
             >

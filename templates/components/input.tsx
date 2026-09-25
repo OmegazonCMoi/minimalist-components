@@ -56,7 +56,7 @@ export default function Input({
     error
       ? "border border-[#fca5a5] bg-[#fef2f2] text-[#991b1b] focus-within:border-[#f87171] dark:border-[#f87171] dark:bg-[#450a0a]/50 dark:text-[#fecaca] dark:focus-within:border-[#fca5a5]"
       : border
-        ? "border border-zinc-200 bg-white text-zinc-900 focus-within:border-zinc-300 focus-within:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus-within:border-zinc-400 dark:focus-within:bg-zinc-800"
+        ? "border border-zinc-200 bg-white text-zinc-900 focus-within:border-zinc-300 focus-within:bg-zinc-50 dark:border-[#333338] dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus-within:border-zinc-500 dark:focus-within:bg-zinc-800"
         : "border border-transparent bg-zinc-200/80 text-zinc-900 focus-within:bg-zinc-200 dark:bg-zinc-800/80 dark:text-zinc-200 dark:focus-within:bg-zinc-800",
     sizeClasses[size],
     className,

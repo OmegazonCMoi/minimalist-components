@@ -41,9 +41,9 @@ const toneToStyle: Record<AlertDialogTone, ButtonStyle> = {
 };
 
 const toneBorderClasses: Record<AlertDialogTone, string> = {
-  neutral: "border-zinc-400/55 dark:border-zinc-700/70",
-  danger: "border-[#fecaca]/25 dark:border-[#f87171]/12",
-  warning: "border-[#fef08a]/25 dark:border-[#eab308]/12",
+  neutral: "border-zinc-400/55 dark:border-[#333338]",
+  danger: "border-[#fecaca]/25 dark:border-[#f87171]/40",
+  warning: "border-[#fef08a]/25 dark:border-[#eab308]/40",
 };
 
 export default function AlertDialog({

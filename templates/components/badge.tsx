@@ -44,7 +44,7 @@ const toneSolid: Record<BadgeTone, string> = {
 };
 
 const toneOutline: Record<BadgeTone, string> = {
-  neutral: "bg-transparent text-zinc-700 border-zinc-300 dark:text-zinc-300 dark:border-zinc-600",
+  neutral: "bg-transparent text-zinc-700 border-zinc-300 dark:text-zinc-300 dark:border-[#333338]",
   success: "bg-transparent text-[#16a34a] border-[#86efac] dark:text-[#86efac] dark:border-[#22c55e]",
   warning: "bg-transparent text-[#ca8a04] border-[#fde047] dark:text-[#fde047] dark:border-[#eab308]",
   danger: "bg-transparent text-[#dc2626] border-[#fca5a5] dark:text-[#f87171] dark:border-[#ef4444]",
@@ -58,10 +58,10 @@ const toneGhost: Record<BadgeTone, string> = {
 };
 
 const toneBorder: Record<BadgeTone, string> = {
-  neutral: "border-zinc-300 dark:border-zinc-600",
+  neutral: "border-zinc-300 dark:border-[#333338]",
   success: "border-[#22c55e]/50 dark:border-[#22c55e]/60",
   warning: "border-[#eab308]/50 dark:border-[#eab308]/60",
-  danger: "border-[#ef4444]/50 dark:border-[#ef4444]/60",
+  danger: "border-[#ef4444]/50 dark:border-[#ef4444]",
 };
 
 export default function Badge({
