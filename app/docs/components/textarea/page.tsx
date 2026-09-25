@@ -85,10 +85,8 @@ export default function TextareaDocsPage() {
         description="boolean — default false"
         code={`${imp}
 
-<Textarea placeholder="No border" />
 <Textarea border placeholder="With border" />`}
       >
-        <Textarea placeholder="No border" />
         <Textarea border placeholder="With border" />
       </PropSection>
 
