@@ -66,8 +66,8 @@ export function SignInBlock() {
           Welcome back — enter your details.
         </p>
       </div>
-      <Input border label="Email" type="text" placeholder="you@studio.dev" />
-      <Input border label="Password" type="password" placeholder="••••••••" />
+      <Input label="Email" type="text" placeholder="you@studio.dev" />
+      <Input label="Password" type="password" placeholder="••••••••" />
       <Checkbox label="Remember me for 30 days" />
       <Button type="submit" className="w-full">
         Continue
