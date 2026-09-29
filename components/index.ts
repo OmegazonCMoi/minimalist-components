@@ -51,7 +51,12 @@ export { default as Radio } from "./radio";
 export type { RadioProps, RadioSize } from "./radio";
 
 export { default as Select } from "./select";
-export type { SelectProps, SelectSize, SelectOption } from "./select";
+export type {
+  SelectProps,
+  SelectSize,
+  SelectVariant,
+  SelectOption,
+} from "./select";
 
 export { default as Separator } from "./separator";
 export type { SeparatorProps, SeparatorOrientation } from "./separator";

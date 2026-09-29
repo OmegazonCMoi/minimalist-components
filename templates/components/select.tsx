@@ -9,20 +9,24 @@ import {
   useState,
   type FocusEvent,
   type KeyboardEvent,
+  type ReactNode,
 } from "react";
 import { EASE_OUT, popoverTransition, popoverVariants } from "@/lib/motion";
 
 type SelectSize = "sm" | "md" | "lg";
+type SelectVariant = "field" | "inline";
 
 type SelectOption = {
   label: string;
   value: string;
+  icon?: ReactNode;
   disabled?: boolean;
 };
 
 type SelectProps = {
   className?: string;
   size?: SelectSize;
+  variant?: SelectVariant;
   border?: boolean;
   label?: string;
   error?: string;
@@ -44,6 +48,12 @@ const sizeClasses: Record<SelectSize, string> = {
   lg: "h-12 px-5 py-2.5 text-base gap-2.5 rounded-2xl",
 };
 
+const inlineSizeClasses: Record<SelectSize, string> = {
+  sm: "text-xs gap-1",
+  md: "text-sm gap-1.5",
+  lg: "text-base gap-2",
+};
+
 const optionSizeClasses: Record<SelectSize, string> = {
   sm: "px-2.5 py-1.5 text-xs rounded-xl",
   md: "px-3 py-2 text-sm rounded-xl",
@@ -53,6 +63,7 @@ const optionSizeClasses: Record<SelectSize, string> = {
 export default function Select({
   className = "",
   size = "md",
+  variant = "field",
   border = false,
   label,
   error,
@@ -88,10 +99,10 @@ export default function Select({
   const selectedOption = options.find((o) => o.value === selected);
   const displayLabel = selectedOption?.label ?? placeholder;
   const isPlaceholder = !selectedOption;
+  const isInline = variant === "inline";
 
-  const triggerClasses = [
-    "relative flex w-full max-w-sm items-center font-sans transition-colors outline-none",
-    disabled ? "cursor-not-allowed opacity-40" : "cursor-pointer",
+  const fieldClasses = [
+    "w-full max-w-sm outline-none",
     error
       ? "border border-[#fca5a5] bg-[#fef2f2] text-[#991b1b] focus-visible:border-[#f87171] dark:border-[#f87171] dark:bg-[#450a0a]/50 dark:text-[#fecaca] dark:focus-visible:border-[#fca5a5]"
       : border
@@ -102,6 +113,22 @@ export default function Select({
       ? "border-zinc-300 bg-zinc-50 dark:border-zinc-500 dark:bg-zinc-800"
       : "",
     sizeClasses[size],
+  ];
+
+  const inlineClasses = [
+    "max-w-full rounded-md outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-300 dark:focus-visible:outline-zinc-600",
+    error
+      ? "text-[#f87171]"
+      : open
+        ? "text-zinc-600 dark:text-zinc-400"
+        : "text-zinc-900 enabled:hover:text-zinc-600 dark:text-zinc-200 dark:enabled:hover:text-zinc-400",
+    inlineSizeClasses[size],
+  ];
+
+  const triggerClasses = [
+    "relative flex items-center font-sans transition-colors",
+    disabled ? "cursor-not-allowed opacity-40" : "cursor-pointer",
+    ...(isInline ? inlineClasses : fieldClasses),
     className,
   ]
     .filter(Boolean)
@@ -226,7 +253,13 @@ export default function Select({
   }
 
   return (
-    <div ref={rootRef} className="flex w-full max-w-sm flex-col gap-1.5">
+    <div
+      ref={rootRef}
+      className={[
+        "flex-col gap-1.5",
+        isInline ? "inline-flex max-w-full" : "flex w-full max-w-sm",
+      ].join(" ")}
+    >
       {label ? (
         <label
           htmlFor={selectId}
@@ -261,9 +294,21 @@ export default function Select({
           onFocus={onFocus}
           className={triggerClasses}
         >
+          {selectedOption?.icon ? (
+            <span
+              className={[
+                "inline-flex shrink-0 [&_svg]:size-[1em]",
+                error ? "text-[#f87171]" : "text-zinc-500",
+              ].join(" ")}
+              aria-hidden
+            >
+              {selectedOption.icon}
+            </span>
+          ) : null}
           <span
             className={[
-              "min-w-0 flex-1 truncate text-left",
+              "min-w-0 truncate text-left",
+              isInline ? "" : "flex-1",
               isPlaceholder
                 ? error
                   ? "text-[#f87171]/50"
@@ -303,7 +348,8 @@ export default function Select({
               transition={reduced ? { duration: 0 } : popoverTransition}
               style={{ transformOrigin: "50% 0%" }}
               className={[
-                "absolute top-full left-0 z-[200] mt-1.5 max-h-60 w-full overflow-auto p-1",
+                "absolute top-full left-0 z-[200] mt-1.5 max-h-60 overflow-auto p-1",
+                isInline ? "w-max max-w-xs min-w-40" : "w-full",
                 "rounded-2xl border border-zinc-200 bg-white shadow-lg",
                 "dark:border-[#333338] dark:bg-zinc-900 dark:shadow-black/40",
                 "outline-none",
@@ -346,7 +392,17 @@ export default function Select({
                       commit(option.value);
                     }}
                   >
-                    <span className="truncate">{option.label}</span>
+                    <span className="flex min-w-0 items-center gap-2">
+                      {option.icon ? (
+                        <span
+                          className="inline-flex shrink-0 text-zinc-500 [&_svg]:size-[1em]"
+                          aria-hidden
+                        >
+                          {option.icon}
+                        </span>
+                      ) : null}
+                      <span className="truncate">{option.label}</span>
+                    </span>
                     {isSelected ? (
                       <CheckIcon
                         className="size-[1em] shrink-0 text-zinc-500"
@@ -367,4 +423,4 @@ export default function Select({
 }
 
 export { Select };
-export type { SelectProps, SelectSize, SelectOption };
+export type { SelectProps, SelectSize, SelectVariant, SelectOption };

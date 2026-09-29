@@ -1,3 +1,11 @@
+import {
+  ClockIcon,
+  FlameIcon,
+  MonitorIcon,
+  MoonIcon,
+  StarIcon,
+  SunIcon,
+} from "lucide-react";
 import Select from "@/components/select";
 import Table from "@/components/table";
 import { InstallBlock } from "@/components/docs/code-block";
@@ -16,7 +24,23 @@ const countryOptions = [
   { label: "United States", value: "us" },
 ];
 
+const themeOptions = [
+  { label: "Light", value: "light", icon: <SunIcon /> },
+  { label: "Dark", value: "dark", icon: <MoonIcon /> },
+  { label: "System", value: "system", icon: <MonitorIcon /> },
+];
+
+const sortOptions = [
+  { label: "Newest", value: "newest", icon: <ClockIcon /> },
+  { label: "Popular", value: "popular", icon: <FlameIcon /> },
+  { label: "Top rated", value: "top", icon: <StarIcon /> },
+];
+
 const imp = `import { Select } from "@/components";`;
+const impIcons = `import { Select } from "@/components";
+import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react";`;
+const impInline = `import { Select } from "@/components";
+import { ClockIcon, FlameIcon, StarIcon } from "lucide-react";`;
 
 const optionsCode = `const options = [
   { label: "Apple", value: "apple" },
@@ -31,7 +55,8 @@ const selectProps = [
   { prop: "defaultValue", type: "string", default: "—", description: "Initial value" },
   { prop: "label", type: "string", default: "—", description: "Field label" },
   { prop: "size", type: "sm | md | lg", default: "md", description: "Field scale" },
-  { prop: "border", type: "boolean", default: "false", description: "Show outline" },
+  { prop: "variant", type: "field | inline", default: "field", description: "Field box or plain text trigger" },
+  { prop: "border", type: "boolean", default: "false", description: "Show outline (field only)" },
   { prop: "error", type: "string", default: "—", description: "Error message" },
   { prop: "disabled", type: "boolean", default: "false", description: "Disable field" },
   { prop: "name", type: "string", default: "—", description: "Field name" },
@@ -67,6 +92,22 @@ ${optionsCode}
 <Select options={options} defaultValue="apple" />`}
       >
         <Select options={fruitOptions} defaultValue="apple" />
+      </PropSection>
+
+      <PropSection
+        name="option.icon"
+        description="ReactNode — shown in the list and in the trigger"
+        code={`${impIcons}
+
+const options = [
+  { label: "Light", value: "light", icon: <SunIcon /> },
+  { label: "Dark", value: "dark", icon: <MoonIcon /> },
+  { label: "System", value: "system", icon: <MonitorIcon /> },
+];
+
+<Select options={options} defaultValue="system" />`}
+      >
+        <Select options={themeOptions} defaultValue="system" />
       </PropSection>
 
       <PropSection
@@ -119,6 +160,29 @@ ${optionsCode}
         <Select size="sm" options={fruitOptions} placeholder="Small" />
         <Select size="md" options={fruitOptions} placeholder="Medium" />
         <Select size="lg" options={fruitOptions} placeholder="Large" />
+      </PropSection>
+
+      <PropSection
+        name="variant"
+        description="field · inline — default field"
+        stack
+        codes={[
+          `${imp}
+
+<Select variant="field" options={options} defaultValue="apple" />`,
+          `${impInline}
+
+const options = [
+  { label: "Newest", value: "newest", icon: <ClockIcon /> },
+  { label: "Popular", value: "popular", icon: <FlameIcon /> },
+  { label: "Top rated", value: "top", icon: <StarIcon /> },
+];
+
+<Select variant="inline" options={options} defaultValue="newest" />`,
+        ]}
+      >
+        <Select variant="field" options={fruitOptions} defaultValue="apple" />
+        <Select variant="inline" options={sortOptions} defaultValue="newest" />
       </PropSection>
 
       <PropSection
